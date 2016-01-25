@@ -1,0 +1,24 @@
+[submodule "layers/poky"]
+	path = layers/poky
+	url = https://git.yoctoproject.org/git/poky
+[submodule "layers/meta-openembedded"]
+	path = layers/meta-openembedded
+	url = https://github.com/openembedded/meta-openembedded.git
+[submodule "layers/edison-src"]
+	path = layers/edison-src
+	url = git@bitbucket.org:rulemotion/edison-src.git
+[submodule "layers/meta-intel-iot-middleware"]
+	path = layers/meta-intel-iot-middleware
+	url = http://git.yoctoproject.org/git/meta-intel-iot-middleware
+[submodule "layers/meta-resin"]
+	path = layers/meta-resin
+	url = https://github.com/resin-os/meta-resin.git
+	branch = master-next
+[submodule "resin-device-types"]
+	path = resin-device-types
+	url = https://github.com/resin-io/resin-device-types.git
+	branch = master
+[submodule "resin-yocto-scripts"]
+	path = resin-yocto-scripts
+	url = https://github.com/resin-os/resin-yocto-scripts.git
+	branch = master
