@@ -1,5 +1,5 @@
 deviceTypesCommon = require 'resin-device-types/common'
-networkOptions = deviceTypesCommon
+{ networkOptions } = deviceTypesCommon
 
 OSX_DFU_COREUTILS_USBUTILS = '''
 	You need <a href="https://www.macports.org/">MacPorts</a> installed on your system.
