@@ -4,12 +4,6 @@
 [submodule "layers/meta-openembedded"]
 	path = layers/meta-openembedded
 	url = https://github.com/openembedded/meta-openembedded.git
-[submodule "layers/edison-src"]
-	path = layers/edison-src
-	url = git@bitbucket.org:rulemotion/edison-src.git
-[submodule "layers/meta-intel-iot-middleware"]
-	path = layers/meta-intel-iot-middleware
-	url = http://git.yoctoproject.org/git/meta-intel-iot-middleware
 [submodule "layers/meta-resin"]
 	path = layers/meta-resin
 	url = https://github.com/resin-os/meta-resin.git
@@ -19,3 +13,6 @@
 [submodule "resin-yocto-scripts"]
 	path = resin-yocto-scripts
 	url = https://github.com/resin-os/resin-yocto-scripts.git
+[submodule "layers/meta-edison-bsp"]
+	path = layers/meta-edison-bsp
+	url = git://sandbox.sakoman.com/meta-edison-bsp.git
