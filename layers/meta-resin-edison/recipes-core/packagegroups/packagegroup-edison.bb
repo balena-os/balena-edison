@@ -9,7 +9,7 @@ RDEPENDS_${PN} = "\
     u-boot \
     u-boot-fw-utils \
     bluetooth-rfkill-event \
-    sst-fw-bin \
+    sst-fw \
     mcu-fw-load \
     mcu-fw-bin \
     "
