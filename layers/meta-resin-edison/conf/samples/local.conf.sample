@@ -10,6 +10,9 @@ BBMASK ?= ".*/meta-resin/meta-resin-common/recipes-core/volatile-binds/"
 # Set this to make build system generate resinhup bundles
 #RESINHUP ?= "yes"
 
+# Set this to change the supervisor tag used
+#SUPERVISOR_TAG ?= "master"
+
 # Compress final SD image with xz
 #RESIN_SDIMG_COMPRESSION ?= "xz"
 
