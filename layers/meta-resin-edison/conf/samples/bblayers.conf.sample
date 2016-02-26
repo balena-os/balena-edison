@@ -10,12 +10,10 @@ BBLAYERS ?= " \
     ${TOPDIR}/../layers/poky/meta-yocto \
     ${TOPDIR}/../layers/meta-openembedded/meta-oe \
     ${TOPDIR}/../layers/meta-openembedded/meta-networking \
-    ${TOPDIR}/../layers/edison-src/meta-intel-edison/meta-intel-edison-bsp \
-    ${TOPDIR}/../layers/edison-src/meta-intel-edison/meta-intel-edison-distro \
-    ${TOPDIR}/../layers/edison-src/meta-intel-edison/meta-intel-arduino \
-    ${TOPDIR}/../layers/meta-intel-iot-middleware \
+    ${TOPDIR}/../layers/meta-openembedded/meta-python \
+    ${TOPDIR}/../layers/meta-edison-bsp \
     ${TOPDIR}/../layers/meta-resin/meta-resin-common \
-    ${TOPDIR}/../layers/meta-resin/meta-resin-daisy \
+    ${TOPDIR}/../layers/meta-resin/meta-resin-fido \
     ${TOPDIR}/../layers/meta-resin-edison \
     "
 
@@ -23,5 +21,5 @@ BBLAYERS_NON_REMOVABLE ?= " \
     ${TOPDIR}/../layers/poky/meta \
     ${TOPDIR}/../layers/poky/meta-yocto \
     ${TOPDIR}/../layers/meta-resin/meta-resin-common \
-    ${TOPDIR}/../layers/meta-resin/meta-resin-daisy \
+    ${TOPDIR}/../layers/meta-resin/meta-resin-fido \
     "
