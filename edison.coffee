@@ -84,6 +84,54 @@ module.exports =
 			path: '/config.json'
 
 	initialization:
+		dependencies:
+			osx: [
+					name: 'greadlink'
+					instructions: '''
+						This utility is included in the `coreutils` package. Run:
+
+							$ sudo port install coreutils
+
+						Or with Homebrew:
+
+							$ brew install coreutils
+					'''
+				,
+					name: 'dfu-util'
+					instructions: '''
+						Install dfu-util by running:
+
+							$ sudo port install dfu-util@0.7
+
+						Or with Homebrew:
+
+							$ brew install dfu-util
+					'''
+			]
+			linux: [
+					name: 'readlink'
+					instructions: '''
+						Install `coreutils` from your distribution repos. For example, for Ubuntu:
+
+							$ sudo apt-get install coreutils
+					'''
+				,
+					name: 'dfu-util'
+					instructions: '''
+						Install `dfu-util` from your distribution repos. For example, for Ubuntu:
+
+							$ sudo apt-get install dfu-util
+					'''
+			]
+			win32: [
+				name: 'dfu-util'
+				instructions: '''
+					Install Windows drivers for Edison from:
+
+						http://downloadmirror.intel.com/24909/eng/IntelEdisonDriverSetup1.2.1.exe
+				'''
+			]
+
 		operations: [
 			command: 'run-script'
 			script: 'flashall.bat'
