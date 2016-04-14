@@ -16,3 +16,6 @@
 [submodule "layers/meta-edison-bsp"]
 	path = layers/meta-edison-bsp
 	url = git://sandbox.sakoman.com/meta-edison-bsp.git
+[submodule "layers/oe-meta-go"]
+	path = layers/oe-meta-go
+	url = https://github.com/mem/oe-meta-go.git
