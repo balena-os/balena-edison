@@ -41,6 +41,7 @@ define_labels() {
 deploy_bundle() {
     #Create empty vfat filesystem for out config partition
     CONFIG_BLOCKS=${CONFIG_SIZE}
+    rm -rf ${DEPLOY_DIR_IMAGE}/config.img
     mkfs.vfat -n "${RESIN_CONFIG_FS_LABEL}" -S 512 -C ${DEPLOY_DIR_IMAGE}/config.img $CONFIG_BLOCKS
 
     mkdir -p ${DEPLOY_DIR_IMAGE}/resin-edison
