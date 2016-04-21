@@ -60,6 +60,7 @@ module.exports =
 		version: 'yocto-daisy'
 		deployArtifact: 'resin-edison'
 		archive: true
+		compressed: true
 
 	options: [
 		isGroup: true
