@@ -13,7 +13,7 @@ BBLAYERS ?= " \
     ${TOPDIR}/../layers/meta-openembedded/meta-python \
     ${TOPDIR}/../layers/meta-edison-bsp \
     ${TOPDIR}/../layers/meta-resin/meta-resin-common \
-    ${TOPDIR}/../layers/meta-resin/meta-resin-fido \
+    ${TOPDIR}/../layers/meta-resin/meta-resin-jethro \
     ${TOPDIR}/../layers/meta-resin-edison \
     ${TOPDIR}/../layers/oe-meta-go \
     "

@@ -13,6 +13,9 @@ PCBIOS_edison = "0"
 # Specify rootfs image type
 IMAGE_FSTYPES_append_edison = " hddimg"
 
+# We currently use ext3 rootfs partitions
+IMAGE_TYPEDEP_hddimg = "ext3"
+
 BOOTIMG_VOLUME_ID_edison = "resin-boot"
 
 DEPENDS_append_edison = "\
@@ -38,6 +41,7 @@ define_labels() {
 deploy_bundle() {
     #Create empty vfat filesystem for out config partition
     CONFIG_BLOCKS=${CONFIG_SIZE}
+    rm -rf ${DEPLOY_DIR_IMAGE}/config.img
     mkfs.vfat -n "${RESIN_CONFIG_FS_LABEL}" -S 512 -C ${DEPLOY_DIR_IMAGE}/config.img $CONFIG_BLOCKS
 
     mkdir -p ${DEPLOY_DIR_IMAGE}/resin-edison

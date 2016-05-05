@@ -1,6 +1,7 @@
 Change log
 -----------
 
+* Update to jethro dependent components and added needed fixes [Andrei]
 
 # v1.1.1 - 2016-03-16
 
