@@ -1,6 +1,8 @@
 Change log
 -----------
 
+# v1.1.4 - 2016-05-10
+
 # v1.1.1 - 2016-03-16
 
 * Switch to open edison bsp repository (git://sandbox.sakoman.com/meta-edison-bsp.git) [Florin]
