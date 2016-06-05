@@ -6,11 +6,11 @@ SRC_URI = " \
     git://github.com/01org/edison-linux.git;protocol=git;branch=edison-${LINUX_VERSION};nocheckout=1;name=machine \
     file://defconfig \
     file://0001-add-gcc5-support.patch \
+    file://do_not_expose_mmc_boot_partitions.patch \
+    file://0001-Btrfs-fix-not-being-able-to-find-skinny-extents-duri.patch \
     "
-SRCREV_machine = "0806da4730c0b863078f9d353272863fdf0f780d"
 
-# Patch to avoid exposing mmc partitions
-SRC_URI_append_edison = " file://do_not_expose_mmc_boot_partitions.patch"
+SRCREV_machine = "0806da4730c0b863078f9d353272863fdf0f780d"
 
 inherit kernel-resin
 
