@@ -1,6 +1,7 @@
 Change log
 -----------
 
+* Bump meta-resin to HEAD [Andrei]
 * Fix btrfs skinny relocation bug [Florin]
 * Bump yocto-resin-scripts to bring in improvements for in-docker builds [Andrei]
 * Configure builds with RM_OLD_IMAGE [Theodor]
