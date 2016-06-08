@@ -1,6 +1,7 @@
 Change log
 -----------
 
+* Update meta-resin to v1.2 [Andrei]
 * Bump meta-resin to HEAD [Andrei]
 * Fix btrfs skinny relocation bug [Florin]
 * Bump yocto-resin-scripts to bring in improvements for in-docker builds [Andrei]
