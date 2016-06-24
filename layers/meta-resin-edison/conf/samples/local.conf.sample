@@ -11,7 +11,7 @@ BBMASK ?= ".*/meta-resin/meta-resin-common/recipes-core/volatile-binds/"
 #RESINHUP ?= "yes"
 
 # Set this to change the supervisor tag used
-#SUPERVISOR_TAG ?= "master"
+#TARGET_TAG ?= "master"
 
 # Compress final SD image with xz
 #RESIN_SDIMG_COMPRESSION ?= "xz"
