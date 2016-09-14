@@ -1,6 +1,7 @@
 Change log
 -----------
 
+* Update meta-resin [Florin]
 * Change .coffee to introduce versioning (v1) [Florin]
 
 # v1.11.0 - 2016-08-31
