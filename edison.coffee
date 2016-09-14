@@ -40,6 +40,7 @@ LINUX_DFU_COREUTILS = '''
 '''
 
 module.exports =
+	version: 1
 	slug: 'intel-edison'
 	aliases: [ 'edison' ]
 	name: 'Intel Edison'
