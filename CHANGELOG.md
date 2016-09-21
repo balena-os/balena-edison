@@ -1,6 +1,7 @@
 Change log
 -----------
 
+* Update resin-yocto-scripts to include resinhup upload to dockerhub [Florin]
 * Update meta-resin [Florin]
 * Change .coffee to introduce versioning (v1) [Florin]
 
