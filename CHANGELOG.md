@@ -1,6 +1,8 @@
 Change log
 -----------
 
+* Move config.json to our first partition (i.e. resin-boot) [Theodor]
+
 # v1.16.0 - 2016-09-27
 
 * Update meta-resin to v1.16 [Florin]
