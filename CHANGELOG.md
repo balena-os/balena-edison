@@ -1,6 +1,8 @@
 Change log
 -----------
 
+# v1.16.1 - 2016-10-04
+
 * Move config.json to our first partition (i.e. resin-boot) [Theodor]
 
 # v1.16.0 - 2016-09-27
