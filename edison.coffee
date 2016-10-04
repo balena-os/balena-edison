@@ -82,7 +82,7 @@ module.exports =
 
 	configuration:
 		config:
-			image: 'config.img'
+			image: 'resin-image-edison.hddimg'
 			path: '/config.json'
 
 	initialization:
