@@ -1,6 +1,8 @@
 Change log
 -----------
 
+* Update resin-yocto-scripts to include kernel headers handling as gzip [Florin]
+
 # v1.16.1 - 2016-10-04
 
 * Move config.json to our first partition (i.e. resin-boot) [Theodor]
