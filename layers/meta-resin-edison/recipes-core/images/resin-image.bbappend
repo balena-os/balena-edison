@@ -53,6 +53,17 @@ deploy_bundle() {
     cp -rL ${DEPLOY_DIR_IMAGE}/config.img ${DEPLOY_DIR_IMAGE}/resin-edison/
 }
 
+build_hddimg_prepend_edison() {
+    install -d ${HDDDIR}
+
+    # Copy files here to inject them in our boot partition
+    echo '{}' > ${HDDDIR}/config.json
+    if ${@bb.utils.contains('DISTRO_FEATURES','development-image','true','false',d)}; then
+        echo $(cat ${HDDDIR}/config.json | jq ".hostname=\"resin\"") > ${HDDDIR}/config.json
+    fi
+
+}
+
 build_hddimg_append_edison() {
     cp -rL ${DEPLOY_DIR_IMAGE}/resin-image-edison.hddimg ${DEPLOY_DIR_IMAGE}/resin-edison/
 }
