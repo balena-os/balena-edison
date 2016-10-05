@@ -1,6 +1,7 @@
 Change log
 -----------
 
+* Provide hook to inject files in our boot partition and inject initial config.json file [Theodor]
 * Update resin-yocto-script to include changes in our image types [Theodor]
 * Replace the concept of a debug image with a development image [Theodor]
 * Update meta-resin to include avahi [Florin]
