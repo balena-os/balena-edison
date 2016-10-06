@@ -57,11 +57,7 @@ build_hddimg_prepend_edison() {
     install -d ${HDDDIR}
 
     # Copy files here to inject them in our boot partition
-    echo '{}' > ${HDDDIR}/config.json
-    if ${@bb.utils.contains('DISTRO_FEATURES','development-image','true','false',d)}; then
-        echo $(cat ${HDDDIR}/config.json | jq ".hostname=\"resin\"") > ${HDDDIR}/config.json
-    fi
-
+    init_config_json ${HDDDIR}
 }
 
 build_hddimg_append_edison() {
