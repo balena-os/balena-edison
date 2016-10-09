@@ -1,6 +1,7 @@
 Change log
 -----------
 
+* Add meta-filesystem as we need aufs-utils [Andrei]
 * Add build support for resinos [Andrei]
 * Provide hook to inject files in our boot partition and inject initial config.json file [Theodor]
 * Update resin-yocto-script to include changes in our image types [Theodor]
