@@ -1,6 +1,9 @@
 Change log
 -----------
 
+# v2.0.0-beta.1 - 2016-10-11
+
+* Update meta-resin to v2.0-beta.1 [Andrei]
 * Add meta-filesystem as we need aufs-utils [Andrei]
 * Add build support for resinos [Andrei]
 * Provide hook to inject files in our boot partition and inject initial config.json file [Theodor]
