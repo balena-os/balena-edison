@@ -1,6 +1,64 @@
 Change log
 -----------
 
+# v1.19.0 - 2016-11-03
+
+* Update meta-resin to v1.19 [Florin]
+* Remove obsolete openvpn 2.3.6 recipe from our layers and let bitbake use openvpn 2.3.7 from meta-openembedded [Florin]
+* Change resin-boot and resin-conf sizes in accordance with our partitioning scheme [Florin]
+* Change resin-conf from vfat to ext4 [Florin]
+
+# v1.16.1 - 2016-10-04
+
+* Move config.json to our first partition (i.e. resin-boot) [Theodor]
+
+# v1.16.0 - 2016-09-27
+
+* Update meta-resin to v1.16 [Florin]
+
+# v1.15.0 - 2016-09-24
+
+* Update meta-resin to v1.15 [Florin]
+
+# v1.14.0 - 2016-09-23
+
+* Update meta-resin to v1.14 [Florin]
+
+# v1.13.0 - 2016-09-23
+
+* Update meta-resin to v1.13 [Florin]
+
+# v1.12.0 - 2016-09-21
+
+* Update meta-resin to v1.12 [Florin]
+* Update resin-yocto-scripts to include resinhup upload to dockerhub [Florin]
+* Update meta-resin [Florin]
+* Change .coffee to introduce versioning (v1) [Florin]
+
+# v1.11.0 - 2016-08-31
+
+* Update meta-resin to v1.11 [Florin]
+
+# v1.10.0 - 2016-08-24
+
+* Update meta-resin to v1.10 [Florin]
+
+# v1.9.0 - 2016-08-24
+
+* Update meta-resin to v1.9 [Florin]
+* Update resin-yocto-scripts for including kernel modules headers deploy [Florin]
+* Update yocto-resin-scripts for host nodejs detection improvements [Florin]
+
+# v1.8.0 - 2016-08-02
+
+* Bump meta-resin to v1.8 [Andrei]
+* Bump resin-device-types to include partial manifest support [Andrei]
+* No more debug images in staging
+
+# v1.7.0 - 2016-07-14
+
+* Update meta-resin to v1.7
+
 # v1.6.0 - 2016-07-06
 
 * Update meta-resin to v1.6 [Florin]

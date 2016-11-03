@@ -1,4 +1,4 @@
-deviceTypesCommon = require 'resin-device-types/common'
+deviceTypesCommon = require '@resin.io/device-types/common'
 { networkOptions } = deviceTypesCommon
 
 OSX_DFU_COREUTILS_USBUTILS = '''
@@ -40,6 +40,7 @@ LINUX_DFU_COREUTILS = '''
 '''
 
 module.exports =
+	version: 1
 	slug: 'intel-edison'
 	aliases: [ 'edison' ]
 	name: 'Intel Edison'
@@ -57,7 +58,7 @@ module.exports =
 		machine: 'edison'
 		image: 'resin-image'
 		fstype: 'zip'
-		version: 'yocto-daisy'
+		version: 'yocto-jethro'
 		deployArtifact: 'resin-edison'
 		archive: true
 		compressed: true
@@ -81,7 +82,7 @@ module.exports =
 
 	configuration:
 		config:
-			image: 'config.img'
+			image: 'resin-image-edison.hddimg'
 			path: '/config.json'
 
 	initialization:
