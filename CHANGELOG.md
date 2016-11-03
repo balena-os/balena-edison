@@ -1,6 +1,8 @@
 Change log
 -----------
 
+# v1.19.0 - 2016-11-03
+
 * Update meta-resin to v1.19 [Florin]
 * Remove obsolete openvpn 2.3.6 recipe from our layers and let bitbake use openvpn 2.3.7 from meta-openembedded [Florin]
 * Change resin-boot and resin-conf sizes in accordance with our partitioning scheme [Florin]
