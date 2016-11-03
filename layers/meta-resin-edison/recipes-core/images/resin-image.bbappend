@@ -39,10 +39,11 @@ define_labels() {
 }
 
 deploy_bundle() {
-    #Create empty vfat filesystem for out config partition
+    # Create an empty ext4 filesystem for our config partition
     CONFIG_BLOCKS=${CONFIG_SIZE}
     rm -rf ${DEPLOY_DIR_IMAGE}/config.img
-    mkfs.vfat -n "${RESIN_CONFIG_FS_LABEL}" -S 512 -C ${DEPLOY_DIR_IMAGE}/config.img $CONFIG_BLOCKS
+    dd if=/dev/zero of=${DEPLOY_DIR_IMAGE}/config.img count=${CONFIG_BLOCKS} bs=1024
+    mkfs.ext4 -F -L "${RESIN_CONFIG_FS_LABEL}" ${DEPLOY_DIR_IMAGE}/config.img
 
     mkdir -p ${DEPLOY_DIR_IMAGE}/resin-edison
     cp -rL ${DEPLOY_DIR_IMAGE}/u-boot-edison.bin ${DEPLOY_DIR_IMAGE}/resin-edison/

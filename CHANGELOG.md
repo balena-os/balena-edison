@@ -1,6 +1,10 @@
 Change log
 -----------
 
+* Remove obsolete openvpn 2.3.6 recipe from our layers and let bitbake use openvpn 2.3.7 from meta-openembedded [Florin]
+* Change resin-boot and resin-conf sizes in accordance with our partitioning scheme [Florin]
+* Change resin-conf from vfat to ext4 [Florin]
+
 # v2.0.0-beta.1 - 2016-10-11
 
 * Update meta-resin to v2.0-beta.1 [Andrei]
