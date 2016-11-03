@@ -1,6 +1,7 @@
 Change log
 -----------
 
+* Change resin-boot and resin-conf sizes in accordance with our partitioning scheme [Florin]
 * Change resin-conf from vfat to ext4 [Florin]
 
 # v2.0.0-beta.1 - 2016-10-11
