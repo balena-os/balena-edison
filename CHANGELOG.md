@@ -1,6 +1,9 @@
 Change log
 -----------
 
+# v2.0.0-beta.3 - 2016-11-07
+
+* Update meta-resin to v2.0-beta.3 [Andrei]
 * Cleanup docker-resin-supervisor-disk of unneeded variables [Andrei]
 * Update resin-yocto-scripts to fix logging in container builds
 * Remove obsolete openvpn 2.3.6 recipe from our layers and let bitbake use openvpn 2.3.7 from meta-openembedded [Florin]
