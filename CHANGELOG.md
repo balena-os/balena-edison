@@ -1,6 +1,7 @@
 Change log
 -----------
 
+* Cleanup docker-resin-supervisor-disk of unneeded variables [Andrei]
 * Update resin-yocto-scripts to fix logging in container builds
 * Remove obsolete openvpn 2.3.6 recipe from our layers and let bitbake use openvpn 2.3.7 from meta-openembedded [Florin]
 * Change resin-boot and resin-conf sizes in accordance with our partitioning scheme [Florin]
