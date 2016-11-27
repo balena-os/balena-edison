@@ -1,6 +1,8 @@
 Change log
 -----------
 
+# v1.21.0 - 2016-11-27
+
 * Update meta-resin to v1.21 [Florin]
 * Move edison BSP repo to https://github.com/resin-os/meta-edison-bsp.git (also updated to HEAD of previous location) [Florin]
 
