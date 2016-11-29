@@ -1,6 +1,7 @@
 Change log
 -----------
 
+* Fix kernel compile with CONFIG_IP6_NF_IPTABLES [Andrei]
 * Move edison BSP repo to https://github.com/resin-os/meta-edison-bsp.git (also updated to HEAD of previous location) [Florin]
 
 # v2.0.0-beta.3 - 2016-11-07
