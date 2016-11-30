@@ -30,3 +30,13 @@ KERNEL_CC_append = " -std=gnu89"
 # Deactivate AUDIT to avoid different kernel errors
 RESIN_CONFIGS_append = " noaudit"
 RESIN_CONFIGS[noaudit] = "CONFIG_AUDIT=n"
+
+# CONFIG_NETFILTER_XT_MATCH_SOCKET is built in (from edison defconfig). This
+# compiles xt_socket.c build in which makes CONFIG_NF_DEFRAG_IPV6 needed
+# to be built in too (because it calls nf_defrag_ipv6_enable).
+# CONFIG_IP6_NF_IPTABLES being set as module will trigger CONFIG_NF_DEFRAG_IPV6
+# as a module too making the reference (nf_defrag_ipv6_enable) not available.
+RESIN_CONFIGS_DEPS[ip6tables_nat] = " \
+    CONFIG_NF_CONNTRACK_IPV6=m \
+    CONFIG_IP6_NF_IPTABLES=y \
+    "
