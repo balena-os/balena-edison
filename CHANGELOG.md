@@ -1,6 +1,8 @@
 Change log
 -----------
 
+* Fix kernel compile with CONFIG_IP6_NF_IPTABLES [Andrei]
+
 # v1.22.0 - 2016-11-29
 
 * Update meta-resin to v1.22 [Florin]
