@@ -1,6 +1,8 @@
 Change log
 -----------
 
+* Update to kernel 3.10.98 [Florin]
+
 # v1.24.0 - 2016-12-05
 
 * Update meta-resin to v1.24 [Florin]
