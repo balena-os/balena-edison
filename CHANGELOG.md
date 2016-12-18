@@ -1,6 +1,7 @@
 Change log
 -----------
 
+* Change watchdog ping interval to 35 seconds [Florin]
 * Update to kernel 3.10.98 [Florin]
 
 # v1.24.0 - 2016-12-05
