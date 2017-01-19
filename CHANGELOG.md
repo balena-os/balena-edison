@@ -1,6 +1,8 @@
 Change log
 -----------
 
+# v1.24.1 - 2017-01-19
+
 * Update resin-yocto-scripts to HEAD of the 1.X branch [Florin]
 * Change watchdog ping interval to 35 seconds [Florin]
 * Update to kernel 3.10.98 [Florin]
