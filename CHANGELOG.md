@@ -1,6 +1,29 @@
 Change log
 -----------
 
+# v1.24.1 - 2017-01-19
+
+* Update resin-yocto-scripts to HEAD of the 1.X branch [Florin]
+* Change watchdog ping interval to 35 seconds [Florin]
+* Update to kernel 3.10.98 [Florin]
+
+# v1.24.0 - 2016-12-05
+
+* Update meta-resin to v1.24 [Florin]
+
+# v1.23.0 - 2016-12-05
+
+* Update meta-resin to v1.23 [Andrei]
+
+# v1.22.1 - 2016-11-30
+
+* Fix kernel compile with CONFIG_IP6_NF_IPTABLES [Andrei]
+
+# v1.22.0 - 2016-11-29
+
+* Update meta-resin to v1.22 [Florin]
+* Update resin-yocto-scripts to include jenkins tty fixup [Florin]
+
 # v1.21.0 - 2016-11-27
 
 * Update meta-resin to v1.21 [Florin]

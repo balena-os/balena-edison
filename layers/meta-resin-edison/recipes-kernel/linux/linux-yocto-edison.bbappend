@@ -1,16 +1,15 @@
 FILESEXTRAPATHS_prepend_edison := "${THISDIR}/files:"
 
 # Use the stable version of linux
-LINUX_VERSION = "3.10.17"
+LINUX_VERSION = "3.10.98"
 SRC_URI = " \
     git://github.com/01org/edison-linux.git;protocol=git;branch=edison-${LINUX_VERSION};nocheckout=1;name=machine \
     file://defconfig \
-    file://0001-add-gcc5-support.patch \
     file://do_not_expose_mmc_boot_partitions.patch \
     file://0001-Btrfs-fix-not-being-able-to-find-skinny-extents-duri.patch \
     "
 
-SRCREV_machine = "0806da4730c0b863078f9d353272863fdf0f780d"
+SRCREV_machine = "edison-3.10.98"
 
 inherit kernel-resin
 
@@ -30,3 +29,13 @@ KERNEL_CC_append = " -std=gnu89"
 # Deactivate AUDIT to avoid different kernel errors
 RESIN_CONFIGS_append = " noaudit"
 RESIN_CONFIGS[noaudit] = "CONFIG_AUDIT=n"
+
+# CONFIG_NETFILTER_XT_MATCH_SOCKET is built in (from edison defconfig). This
+# compiles xt_socket.c build in which makes CONFIG_NF_DEFRAG_IPV6 needed
+# to be built in too (because it calls nf_defrag_ipv6_enable).
+# CONFIG_IP6_NF_IPTABLES being set as module will trigger CONFIG_NF_DEFRAG_IPV6
+# as a module too making the reference (nf_defrag_ipv6_enable) not available.
+RESIN_CONFIGS_DEPS[ip6tables_nat] = " \
+    CONFIG_NF_CONNTRACK_IPV6=m \
+    CONFIG_IP6_NF_IPTABLES=y \
+    "
