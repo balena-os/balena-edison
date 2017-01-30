@@ -1,6 +1,8 @@
 Change log
 -----------
 
+* Downgrade kernel version to 3.10.17 to avoid messing with AUFS patched [Andrei]
+
 # v2.0.0-beta.8 - 2017-01-27
 
 * Update meta-resin to v2.0-beta.8 [Andrei]
