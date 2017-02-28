@@ -40,9 +40,9 @@ define_labels() {
 
 deploy_bundle() {
     # Create an empty ext4 filesystem for our config partition
-    CONFIG_BLOCKS=${CONFIG_SIZE}
+    RESIN_STATE_BLOCKS=${RESIN_STATE_SIZE}
     rm -rf ${DEPLOY_DIR_IMAGE}/config.img
-    dd if=/dev/zero of=${DEPLOY_DIR_IMAGE}/config.img count=${CONFIG_BLOCKS} bs=1024
+    dd if=/dev/zero of=${DEPLOY_DIR_IMAGE}/config.img count=${RESIN_STATE_BLOCKS} bs=1024
     mkfs.ext4 -F -L "${RESIN_CONFIG_FS_LABEL}" ${DEPLOY_DIR_IMAGE}/config.img
 
     mkdir -p ${DEPLOY_DIR_IMAGE}/resin-edison
