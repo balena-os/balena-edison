@@ -1,6 +1,7 @@
 Change log
 -----------
 
+* meta-resin: Bump to 2.0.0-beta12 [Andrei]
 * Change rootfs partitions sizes to 308 MB each [Florin]
 
 # v2.0.0-beta11.rev1 - 2017-02-15
