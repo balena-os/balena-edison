@@ -34,7 +34,7 @@ IMAGE_POSTPROCESS_COMMAND_append_edison = " \
 
 define_labels() {
     #Missing labels
-    e2label ${DEPLOY_DIR_IMAGE}/resin-image-edison.ext3 ${RESIN_ROOT_FS_LABEL}
+    e2label ${DEPLOY_DIR_IMAGE}/resin-image-edison.ext3 ${RESIN_ROOTA_FS_LABEL}
     e2label ${DEPLOY_DIR_IMAGE}/resin-data.img ${RESIN_DATA_FS_LABEL}
 }
 
