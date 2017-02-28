@@ -122,8 +122,8 @@
     "tool" : "dfuDownloader"
    },
    {
-    "args" : "\"--alt\" \"resin-data\" \"-D\" \"${data_disk_file}\" \"-t\" \"4096\"",
-    "description" : "Flashing data_disk",
+    "args" : "\"--alt\" \"resin-data\" \"-D\" \"${resin-data_file}\" \"-t\" \"4096\"",
+    "description" : "Flashing resin-data",
     "mandatory" : true,
     "restrict" : null,
     "retry" : 2,
@@ -233,11 +233,11 @@
     "type" : "file",
     "value" : "config.img"
    },
-   "data_disk_file" :    {
-    "description" : "Data_disk",
-    "name" : "data_disk",
+   "resin-data_file" :    {
+    "description" : "Resin-Data",
+    "name" : "resin-data",
     "type" : "file",
-    "value" : "data_disk.img"
+    "value" : "resin-data.img"
    },
    "u-boot-env_file_cdc" :    {
     "description" : "U-Boot CDC environment",
