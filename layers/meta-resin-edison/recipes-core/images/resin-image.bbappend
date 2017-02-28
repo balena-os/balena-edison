@@ -43,7 +43,7 @@ deploy_bundle() {
     RESIN_STATE_BLOCKS=${RESIN_STATE_SIZE}
     rm -rf ${DEPLOY_DIR_IMAGE}/config.img
     dd if=/dev/zero of=${DEPLOY_DIR_IMAGE}/config.img count=${RESIN_STATE_BLOCKS} bs=1024
-    mkfs.ext4 -F -L "${RESIN_CONFIG_FS_LABEL}" ${DEPLOY_DIR_IMAGE}/config.img
+    mkfs.ext4 -F -L "${RESIN_STATE_FS_LABEL}" ${DEPLOY_DIR_IMAGE}/config.img
 
     mkdir -p ${DEPLOY_DIR_IMAGE}/resin-edison
     cp -rL ${DEPLOY_DIR_IMAGE}/u-boot-edison.bin ${DEPLOY_DIR_IMAGE}/resin-edison/
