@@ -113,7 +113,7 @@
     "tool" : "dfuDownloader"
    },
    {
-    "args" : "\"--alt\" \"resin-conf\" \"-D\" \"${conf_file}\" \"-t\" \"4096\"",
+    "args" : "\"--alt\" \"resin-conf\" \"-D\" \"${state_file}\" \"-t\" \"4096\"",
     "description" : "Flashing conf",
     "mandatory" : true,
     "restrict" : null,
@@ -227,11 +227,11 @@
     "type" : "file",
     "value" : "resin-image-edison.ext3"
    },
-   "conf_file" :    {
-    "description" : "conf",
+   "state_file" :    {
+    "description" : "state",
     "name" : "conf",
     "type" : "file",
-    "value" : "config.img"
+    "value" : "resin-state.img"
    },
    "resin-data_file" :    {
     "description" : "Resin-Data",

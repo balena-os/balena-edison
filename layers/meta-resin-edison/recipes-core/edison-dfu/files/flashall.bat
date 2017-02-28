@@ -139,8 +139,8 @@ echo Flashing boot partition ^(kernel^)
 call:flash-command --alt resin-boot -D "%BASE_DIR%resin-image-edison.hddimg"
 if %errorlevel% neq 0 ( exit /b %errorlevel%)
 
-echo "Flashing config partition"
-call:flash-command --alt resin-conf -D "%BASE_DIR%config.img"
+echo "Flashing state partition"
+call:flash-command --alt resin-conf -D "%BASE_DIR%resin-state.img"
 if %errorlevel% neq 0 ( exit /b %errorlevel%)
 
 echo "Flashing resin-data, ^(it can take up to 5 minutes... Please be patient^)"

@@ -41,9 +41,9 @@ define_labels() {
 deploy_bundle() {
     # Create an empty ext4 filesystem for our config partition
     RESIN_STATE_BLOCKS=${RESIN_STATE_SIZE}
-    rm -rf ${DEPLOY_DIR_IMAGE}/config.img
-    dd if=/dev/zero of=${DEPLOY_DIR_IMAGE}/config.img count=${RESIN_STATE_BLOCKS} bs=1024
-    mkfs.ext4 -F -L "${RESIN_STATE_FS_LABEL}" ${DEPLOY_DIR_IMAGE}/config.img
+    rm -rf ${DEPLOY_DIR_IMAGE}/resin-state.img
+    dd if=/dev/zero of=${DEPLOY_DIR_IMAGE}/resin-state.img count=${RESIN_STATE_BLOCKS} bs=1024
+    mkfs.ext4 -F -L "${RESIN_STATE_FS_LABEL}" ${DEPLOY_DIR_IMAGE}/resin-state.img
 
     mkdir -p ${DEPLOY_DIR_IMAGE}/resin-edison
     cp -rL ${DEPLOY_DIR_IMAGE}/u-boot-edison.bin ${DEPLOY_DIR_IMAGE}/resin-edison/
@@ -51,7 +51,7 @@ deploy_bundle() {
     cp -rL ${DEPLOY_DIR_IMAGE}/u-boot-envs ${DEPLOY_DIR_IMAGE}/resin-edison/
     cp -rL ${DEPLOY_DIR_IMAGE}/resin-image-edison.ext3 ${DEPLOY_DIR_IMAGE}/resin-edison/
     cp -rL ${DEPLOY_DIR_IMAGE}/resin-data.img ${DEPLOY_DIR_IMAGE}/resin-edison/
-    cp -rL ${DEPLOY_DIR_IMAGE}/config.img ${DEPLOY_DIR_IMAGE}/resin-edison/
+    cp -rL ${DEPLOY_DIR_IMAGE}/resin-state.img ${DEPLOY_DIR_IMAGE}/resin-edison/
 }
 
 build_hddimg_prepend_edison() {

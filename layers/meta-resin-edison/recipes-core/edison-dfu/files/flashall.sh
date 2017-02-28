@@ -227,8 +227,8 @@ else
 	echo "Flashing boot partition (kernel)"
 	flash-command --alt resin-boot -D "${ESC_BASE_DIR}/resin-image-edison.hddimg"
 
-	echo "Flashing config partition"
- 	flash-command --alt resin-conf -D "${ESC_BASE_DIR}/config.img"
+	echo "Flashing state partition"
+	flash-command --alt resin-conf -D "${ESC_BASE_DIR}/resin-state.img"
 
 	echo "Flashing resin-data, (it can take up to 5 minutes... Please be patient)"
 	flash-command --alt resin-data -D "${ESC_BASE_DIR}/resin-data.img"
