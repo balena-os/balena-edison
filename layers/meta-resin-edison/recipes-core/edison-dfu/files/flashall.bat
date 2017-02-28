@@ -140,7 +140,7 @@ call:flash-command --alt resin-boot -D "%BASE_DIR%resin-image-edison.hddimg"
 if %errorlevel% neq 0 ( exit /b %errorlevel%)
 
 echo "Flashing state partition"
-call:flash-command --alt resin-conf -D "%BASE_DIR%resin-state.img"
+call:flash-command --alt resin-state -D "%BASE_DIR%resin-state.img"
 if %errorlevel% neq 0 ( exit /b %errorlevel%)
 
 echo "Flashing resin-data, ^(it can take up to 5 minutes... Please be patient^)"
@@ -148,7 +148,7 @@ call:flash-command --alt resin-data -D "%BASE_DIR%resin-data.img"
 if %errorlevel% neq 0 ( exit /b %errorlevel%)
 
 echo Flashing rootfs, ^(it can take up to 5 minutes... Please be patient^)
-call:flash-command --alt resin-root -D "%BASE_DIR%resin-image-edison.ext3" -R
+call:flash-command --alt resin-rootA -D "%BASE_DIR%resin-image-edison.ext3" -R
 if %errorlevel% neq 0 ( exit /b %errorlevel% )
 
 echo Rebooting

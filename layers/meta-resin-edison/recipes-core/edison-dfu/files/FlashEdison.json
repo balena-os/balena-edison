@@ -113,7 +113,7 @@
     "tool" : "dfuDownloader"
    },
    {
-    "args" : "\"--alt\" \"resin-conf\" \"-D\" \"${state_file}\" \"-t\" \"4096\"",
+    "args" : "\"--alt\" \"resin-state\" \"-D\" \"${state_file}\" \"-t\" \"4096\"",
     "description" : "Flashing conf",
     "mandatory" : true,
     "restrict" : null,
@@ -131,7 +131,7 @@
     "tool" : "dfuDownloader"
    },
    {
-    "args" : "\"--alt\" \"resin-root\" \"-D\" \"${rootfs_file}\" \"-t\" \"4096\" \"-R\"",
+    "args" : "\"--alt\" \"resin-rootA\" \"-D\" \"${rootfs_file}\" \"-t\" \"4096\" \"-R\"",
     "description" : "Flashing rootfs",
     "mandatory" : true,
     "restrict" : null,
