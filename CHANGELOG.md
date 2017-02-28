@@ -1,6 +1,7 @@
 Change log
 -----------
 
+* Bump resin-yocto-scripts to current HEAD [Andrei]
 * meta-resin: Bump to 2.0.0-beta12 [Andrei]
 * Change rootfs partitions sizes to 308 MB each [Florin]
 
