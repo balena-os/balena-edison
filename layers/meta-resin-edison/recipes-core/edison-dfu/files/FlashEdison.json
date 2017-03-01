@@ -113,7 +113,7 @@
     "tool" : "dfuDownloader"
    },
    {
-    "args" : "\"--alt\" \"resin-conf\" \"-D\" \"${conf_file}\" \"-t\" \"4096\"",
+    "args" : "\"--alt\" \"resin-state\" \"-D\" \"${state_file}\" \"-t\" \"4096\"",
     "description" : "Flashing conf",
     "mandatory" : true,
     "restrict" : null,
@@ -122,8 +122,8 @@
     "tool" : "dfuDownloader"
    },
    {
-    "args" : "\"--alt\" \"resin-data\" \"-D\" \"${data_disk_file}\" \"-t\" \"4096\"",
-    "description" : "Flashing data_disk",
+    "args" : "\"--alt\" \"resin-data\" \"-D\" \"${resin-data_file}\" \"-t\" \"4096\"",
+    "description" : "Flashing resin-data",
     "mandatory" : true,
     "restrict" : null,
     "retry" : 2,
@@ -131,7 +131,7 @@
     "tool" : "dfuDownloader"
    },
    {
-    "args" : "\"--alt\" \"resin-root\" \"-D\" \"${rootfs_file}\" \"-t\" \"4096\" \"-R\"",
+    "args" : "\"--alt\" \"resin-rootA\" \"-D\" \"${rootfs_file}\" \"-t\" \"4096\" \"-R\"",
     "description" : "Flashing rootfs",
     "mandatory" : true,
     "restrict" : null,
@@ -227,17 +227,17 @@
     "type" : "file",
     "value" : "resin-image-edison.ext3"
    },
-   "conf_file" :    {
-    "description" : "conf",
+   "state_file" :    {
+    "description" : "state",
     "name" : "conf",
     "type" : "file",
-    "value" : "config.img"
+    "value" : "resin-state.img"
    },
-   "data_disk_file" :    {
-    "description" : "Data_disk",
-    "name" : "data_disk",
+   "resin-data_file" :    {
+    "description" : "Resin-Data",
+    "name" : "resin-data",
     "type" : "file",
-    "value" : "data_disk.img"
+    "value" : "resin-data.img"
    },
    "u-boot-env_file_cdc" :    {
     "description" : "U-Boot CDC environment",

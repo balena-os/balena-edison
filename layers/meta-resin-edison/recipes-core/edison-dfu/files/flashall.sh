@@ -227,14 +227,14 @@ else
 	echo "Flashing boot partition (kernel)"
 	flash-command --alt resin-boot -D "${ESC_BASE_DIR}/resin-image-edison.hddimg"
 
-	echo "Flashing config partition"
- 	flash-command --alt resin-conf -D "${ESC_BASE_DIR}/config.img"
+	echo "Flashing state partition"
+	flash-command --alt resin-state -D "${ESC_BASE_DIR}/resin-state.img"
 
-	echo "Flashing data_disk, (it can take up to 5 minutes... Please be patient)"
-	flash-command --alt resin-data -D "${ESC_BASE_DIR}/data_disk.img"
+	echo "Flashing resin-data, (it can take up to 5 minutes... Please be patient)"
+	flash-command --alt resin-data -D "${ESC_BASE_DIR}/resin-data.img"
 
 	echo "Flashing rootfs, (it can take up to 5 minutes... Please be patient)"
-	flash-command --alt resin-root -D "${ESC_BASE_DIR}/resin-image-edison.ext3" -R
+	flash-command --alt resin-rootA -D "${ESC_BASE_DIR}/resin-image-edison.ext3" -R
 
 	echo "Rebooting"
 	echo "U-boot & Kernel System Flash Success..."
