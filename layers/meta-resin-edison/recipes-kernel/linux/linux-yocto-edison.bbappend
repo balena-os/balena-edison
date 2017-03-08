@@ -1,16 +1,15 @@
 FILESEXTRAPATHS_prepend_edison := "${THISDIR}/files:"
 
 # Use the stable version of linux
-LINUX_VERSION = "3.10.17"
+LINUX_VERSION = "3.10.98"
 SRC_URI = " \
     git://github.com/01org/edison-linux.git;protocol=git;branch=edison-${LINUX_VERSION};nocheckout=1;name=machine \
     file://defconfig \
-    file://0001-add-gcc5-support.patch \
     file://do_not_expose_mmc_boot_partitions.patch \
     file://0001-Btrfs-fix-not-being-able-to-find-skinny-extents-duri.patch \
     "
 
-SRCREV_machine = "0806da4730c0b863078f9d353272863fdf0f780d"
+SRCREV_machine = "edison-3.10.98"
 
 inherit kernel-resin
 
