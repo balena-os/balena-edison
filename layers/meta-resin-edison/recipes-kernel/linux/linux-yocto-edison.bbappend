@@ -7,6 +7,9 @@ SRC_URI = " \
     file://defconfig \
     file://do_not_expose_mmc_boot_partitions.patch \
     file://0001-Btrfs-fix-not-being-able-to-find-skinny-extents-duri.patch \
+    file://0001-Revert-get-rid-of-s_files-and-files_lock.patch \
+    file://aufs-builtin.patch \
+    file://adapt_aufs_changes.patch \
     "
 
 SRCREV_machine = "edison-3.10.98"
