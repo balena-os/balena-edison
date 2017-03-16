@@ -1,6 +1,7 @@
 Change log
 -----------
 
+* Increase size of the resin initramfs image from 8192K to 16384K to accommodate for size increase due to x86 arch [Florin]
 * Switch to the kernel with the initramfs bundled in [Florin]
 * Update the meta-resin submodule to version v2.0.0-rc3 [Florin]
 * Update to kernel version 3.10.98 and fix aufs for this kernel version [Florin]
