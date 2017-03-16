@@ -1,6 +1,7 @@
 Change log
 -----------
 
+* Update to kernel version 3.10.98 and fix aufs for this kernel version [Florin]
 * Adapt to resin-image changes [Florin]
 
 # v2.0.0-beta12.rev1 - 2017-02-27
