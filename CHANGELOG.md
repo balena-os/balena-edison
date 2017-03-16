@@ -1,6 +1,7 @@
 Change log
 -----------
 
+* Update the meta-resin submodule to version v2.0.0-rc3 [Florin]
 * Update to kernel version 3.10.98 and fix aufs for this kernel version [Florin]
 * Adapt to resin-image changes [Florin]
 
