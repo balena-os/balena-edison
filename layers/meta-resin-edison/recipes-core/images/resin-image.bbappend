@@ -69,3 +69,10 @@ build_hddimg_prepend_edison() {
 build_hddimg_append_edison() {
     cp -rL ${DEPLOY_DIR_IMAGE}/resin-image-edison.hddimg ${DEPLOY_DIR_IMAGE}/resin-edison/
 }
+
+# The Edison ships with its own /etc/fstab, which differs from the one
+# normally shipped with Poky. It requires a slightly different sed
+# expression to switch the root partition to read-only.
+read_only_rootfs_hook_append () {
+    sed -i -e '/^[#[:space:]]*rootfs/{s/nodev/ro,nodev/;s/\([[:space:]]*[[:digit:]]\)\([[:space:]]*\)[[:digit:]]$/\1\20/}' ${IMAGE_ROOTFS}/etc/fstab
+}
