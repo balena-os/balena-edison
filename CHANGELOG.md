@@ -1,6 +1,7 @@
 Change log
 -----------
 
+* Disable NetworkManager random MAC address when scanning [Florin]
 * Increase the boot partition's size to 40MB [Michal]
 * Update the meta-edison-bsp submodule to the latest version [Michal]
 * Fix append in busybox [Andrei]
