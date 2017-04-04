@@ -1,6 +1,7 @@
 Change log
 -----------
 
+* Update the meta-edison-bsp submodule to the latest version [Michal]
 * Fix append in busybox [Andrei]
 * Mount the rootfs read-only [Michal]
 * Increase size of the resin initramfs image from 8192K to 16384K to accommodate for size increase due to x86 arch [Florin]
