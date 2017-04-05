@@ -1,6 +1,7 @@
 Change log
 -----------
 
+* Increase the boot partition's size to 40MB [Michal]
 * Update the meta-edison-bsp submodule to the latest version [Michal]
 * Fix append in busybox [Andrei]
 * Mount the rootfs read-only [Michal]

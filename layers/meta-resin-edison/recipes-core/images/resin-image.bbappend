@@ -59,6 +59,35 @@ populate_append_edison() {
     install -m 0644 ${DEPLOY_DIR_IMAGE}/${KERNEL_IMAGETYPE}${KERNEL_INITRAMFS}-${MACHINE}.bin ${DEST}/vmlinuz
 }
 
+# XXX
+# This function is a replacement for that in poky/meta/classes/bootimg.bbclass
+# in order to support resinhup on the Edison. Even though it's used for a
+# variety of purposes in Poky, it only generates the boot partition on our
+# version of the Edison HostOS. resinhup requires this partition to be
+# >= 40MB in size. The problem with generating this partition with this
+# size does not occur on other boards, as they have more accessible
+# flashing methods permitting them to ship a IMAGE_FSTYPES of type
+# "resinos-img" and not "hddimg".
+build_fat_img() {
+	FATSOURCEDIR=$1
+	FATIMG=$2
+
+	# mkdosfs will fail if ${FATIMG} exists. Since we are creating an
+	# new image, it is safe to delete any previous image.
+	if [ -e ${FATIMG} ]; then
+		rm ${FATIMG}
+	fi
+
+	# value of RESIN_BOOT_SIZE from
+	# meta-resin/meta-resin-common/classes/image_types_resin.bbclass
+	BLOCKS=40960
+	mkdosfs -F 32 -n ${BOOTIMG_VOLUME_ID} -S 512 -C ${FATIMG} \
+		${BLOCKS}
+
+	# Copy FATSOURCEDIR recursively into the image file directly
+	mcopy -i ${FATIMG} -s ${FATSOURCEDIR}/* ::/
+}
+
 build_hddimg_prepend_edison() {
     install -d ${HDDDIR}
 
