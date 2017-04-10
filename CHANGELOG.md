@@ -1,6 +1,7 @@
 Change log
 -----------
 
+* Update poky and meta-openembedded submodules [Will]
 * Disable NetworkManager random MAC address when scanning [Florin]
 * Increase the boot partition's size to 40MB [Michal]
 * Update the meta-edison-bsp submodule to the latest version [Michal]
