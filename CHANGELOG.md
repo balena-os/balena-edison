@@ -1,6 +1,7 @@
 Change log
 -----------
 
+* Ensure flashall.sh has the +x permission on [Michal]
 * Update poky and meta-openembedded submodules [Will]
 * Disable NetworkManager random MAC address when scanning [Florin]
 * Increase the boot partition's size to 40MB [Michal]
