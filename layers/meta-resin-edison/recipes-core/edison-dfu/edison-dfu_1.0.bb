@@ -44,17 +44,17 @@ do_deploy() {
         cp -r $i ${DEPLOYDIR}/${DEPLOYMENT_DIRECTORY}
     done
 
-    cp ${WORKDIR}/filter-dfu-out.js ${DEPLOYDIR}/${DEPLOYMENT_DIRECTORY}/
-    cp ${WORKDIR}/flashall.bat ${DEPLOYDIR}/${DEPLOYMENT_DIRECTORY}/
-    cp ${WORKDIR}/flashall.sh ${DEPLOYDIR}/${DEPLOYMENT_DIRECTORY}/
-    cp ${WORKDIR}/pft-config-edison.xml ${DEPLOYDIR}/${DEPLOYMENT_DIRECTORY}/
-    cp ${WORKDIR}/dfu-util.exe ${DEPLOYDIR}/${DEPLOYMENT_DIRECTORY}/
-    cp ${WORKDIR}/DFU-UTIL_0.8_COPYING ${DEPLOYDIR}/${DEPLOYMENT_DIRECTORY}/
-    cp ${WORKDIR}/FlashEdison.json ${DEPLOYDIR}/${DEPLOYMENT_DIRECTORY}/
-    cp ${WORKDIR}/helper.html ${DEPLOYDIR}/${DEPLOYMENT_DIRECTORY}/
-    cp ${WORKDIR}/Edison-arduino-blink-led.png ${DEPLOYDIR}/${DEPLOYMENT_DIRECTORY}/
-    cp ${WORKDIR}/Edison-arduino.png ${DEPLOYDIR}/${DEPLOYMENT_DIRECTORY}/
-    cp ${WORKDIR}/Edison-breakout-board.png ${DEPLOYDIR}/${DEPLOYMENT_DIRECTORY}/
+    install -m 644 ${WORKDIR}/filter-dfu-out.js ${DEPLOYDIR}/${DEPLOYMENT_DIRECTORY}/
+    install -m 644 ${WORKDIR}/flashall.bat ${DEPLOYDIR}/${DEPLOYMENT_DIRECTORY}/
+    install -m 755 ${WORKDIR}/flashall.sh ${DEPLOYDIR}/${DEPLOYMENT_DIRECTORY}/
+    install -m 644 ${WORKDIR}/pft-config-edison.xml ${DEPLOYDIR}/${DEPLOYMENT_DIRECTORY}/
+    install -m 644 ${WORKDIR}/dfu-util.exe ${DEPLOYDIR}/${DEPLOYMENT_DIRECTORY}/
+    install -m 644 ${WORKDIR}/DFU-UTIL_0.8_COPYING ${DEPLOYDIR}/${DEPLOYMENT_DIRECTORY}/
+    install -m 644 ${WORKDIR}/FlashEdison.json ${DEPLOYDIR}/${DEPLOYMENT_DIRECTORY}/
+    install -m 644 ${WORKDIR}/helper.html ${DEPLOYDIR}/${DEPLOYMENT_DIRECTORY}/
+    install -m 644 ${WORKDIR}/Edison-arduino-blink-led.png ${DEPLOYDIR}/${DEPLOYMENT_DIRECTORY}/
+    install -m 644 ${WORKDIR}/Edison-arduino.png ${DEPLOYDIR}/${DEPLOYMENT_DIRECTORY}/
+    install -m 644 ${WORKDIR}/Edison-breakout-board.png ${DEPLOYDIR}/${DEPLOYMENT_DIRECTORY}/
 
 }
 
