@@ -1,6 +1,7 @@
 Change log
 -----------
 
+* Update resin-yocto-scripts to HEAD of master branch [Florin]
 * Copy example NetworkManager config file [Florin]
 * Ensure flashall.sh has the +x permission on [Michal]
 * Update poky and meta-openembedded submodules [Will]
