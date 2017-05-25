@@ -1,6 +1,9 @@
 Change log
 -----------
 
+# v2.0.4+rev1 - 2017-05-25
+
+* Update the meta-resin submodule to version v2.0.4 [Florin]
 * Update resin-yocto-scripts to HEAD of master branch [Florin]
 * Copy example NetworkManager config file [Florin]
 * Ensure flashall.sh has the +x permission on [Michal]
