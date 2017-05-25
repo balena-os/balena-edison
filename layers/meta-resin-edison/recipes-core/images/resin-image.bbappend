@@ -57,6 +57,8 @@ deploy_bundle() {
 populate_append_edison() {
     # start using the kernel bundled with the meta-resin initramfs
     install -m 0644 ${DEPLOY_DIR_IMAGE}/${KERNEL_IMAGETYPE}${KERNEL_INITRAMFS}-${MACHINE}.bin ${DEST}/vmlinuz
+    # copy example NetworkManager config file
+    cp -r ${DEPLOY_DIR_IMAGE}/system-connections ${DEST}
 }
 
 # XXX
