@@ -1,6 +1,7 @@
 Change log
 -----------
 
+* Copy example NetworkManager config file [Florin]
 * Ensure flashall.sh has the +x permission on [Michal]
 * Update poky and meta-openembedded submodules [Will]
 * Disable NetworkManager random MAC address when scanning [Florin]
