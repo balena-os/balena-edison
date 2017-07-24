@@ -1,6 +1,8 @@
 Change log
 -----------
 
+* Enable SMSC95xx driver as module for being used by some ethernet over usb devices [Florin]
+
 # v2.0.5+rev1 - 2017-06-02
 
 * Update the meta-resin submodule to version v2.0.5 [Andrei]
