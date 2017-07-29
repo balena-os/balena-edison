@@ -54,7 +54,7 @@ deploy_bundle() {
     cp -rL ${DEPLOY_DIR_IMAGE}/resin-state.img ${DEPLOY_DIR_IMAGE}/resin-edison/
 }
 
-populate_append_edison() {
+do_populate_append_edison() {
     # start using the kernel bundled with the meta-resin initramfs
     install -m 0644 ${DEPLOY_DIR_IMAGE}/${KERNEL_IMAGETYPE}${KERNEL_INITRAMFS}-${MACHINE}.bin ${DEST}/vmlinuz
     # copy example NetworkManager config file
