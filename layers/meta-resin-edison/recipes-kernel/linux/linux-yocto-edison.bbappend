@@ -42,3 +42,6 @@ RESIN_CONFIGS_DEPS[ip6tables_nat] = " \
     CONFIG_NF_CONNTRACK_IPV6=m \
     CONFIG_IP6_NF_IPTABLES=y \
     "
+
+RESIN_CONFIGS_append = " smsc95xx"
+RESIN_CONFIGS[smsc95xx] = "CONFIG_USB_NET_SMSC95XX=m"

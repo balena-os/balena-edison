@@ -1,6 +1,12 @@
 Change log
 -----------
 
+# v2.2.0+rev1 - 2017-07-28
+
+* Update the meta-resin submodule to version v2.2.0 [Florin]
+* Update resin-yocto-scripts to HEAD of master branch [Florin]
+* Enable SMSC95xx driver as module for being used by some ethernet over usb devices [Florin]
+
 # v2.0.5+rev1 - 2017-06-02
 
 * Update the meta-resin submodule to version v2.0.5 [Andrei]
