@@ -1,6 +1,8 @@
 Change log
 -----------
 
+* Fix missing system-connections directory from the boot partition [Florin]
+
 # v2.2.0+rev1 - 2017-07-28
 
 * Update the meta-resin submodule to version v2.2.0 [Florin]
