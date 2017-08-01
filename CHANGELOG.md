@@ -1,6 +1,8 @@
 Change log
 -----------
 
+# v2.2.0+rev2 - 2017-08-01
+
 * Fix missing system-connections directory from the boot partition [Florin]
 
 # v2.2.0+rev1 - 2017-07-28
