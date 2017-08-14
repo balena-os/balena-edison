@@ -1,0 +1,32 @@
+From: Theodor Gherzan <theodor@resin.io>
+Date: Mon, 14 Aug 2017 15:51:09 +0200
+Subject: [PATCH] Merge default environment with the saved one
+
+When u-boot imports an environment it overwrites the default one compiled inside
+the u-boot binary. We need these two environments to be merged, so we can expose
+the resin specific definition from resin-uboot to the environment.
+
+Upstream-Status: Inappropriate
+
+Signed-off-by: Theodor Gherzan <theodor@resin.io>
+---
+ common/env_common.c | 18 ++++++++++++++++++
+ 1 file changed, 18 insertions(+)
+
+diff --git a/common/env_common.c b/common/env_common.c
+index af59c72..6aeef7c 100644
+--- a/common/env_common.c
++++ b/common/env_common.c
+@@ -212,7 +212,8 @@ int env_import(const char *buf, int check)
+ 		return ret;
+ 	}
+ 
+-	if (himport_r(&env_htab, (char *)ep->data, ENV_SIZE, '\0', 0, 0,
++	set_default_env(NULL);
++	if (himport_r(&env_htab, (char *)ep->data, ENV_SIZE, '\0', H_NOCLEAR, 0,
+ 			0, NULL)) {
+ 		gd->flags |= GD_FLG_ENV_READY;
+ 		return 1;
+-- 
+2.7.4
+
