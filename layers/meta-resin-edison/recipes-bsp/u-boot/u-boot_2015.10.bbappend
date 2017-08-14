@@ -1,1 +1,8 @@
+UBOOT_KCONFIG_SUPPORT = "1"
+
+inherit resin-u-boot
+
+RESIN_BOOT_PART = "7"
+RESIN_DEFAULT_ROOT_PART = "8"
+
 FILESEXTRAPATHS_prepend := "${THISDIR}/files:"
