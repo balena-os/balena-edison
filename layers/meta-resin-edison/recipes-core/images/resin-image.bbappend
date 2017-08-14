@@ -7,6 +7,7 @@ inherit bootimg
 # To be removed in the future
 do_bootimg[depends] += "virtual/kernel:do_deploy"
 do_bootimg[depends] += "networkmanager:do_deploy"
+do_bootimg[depends] += "resin-image:do_rootfs"
 
 # Do not use legacy nor EFI BIOS
 PCBIOS_edison = "0"
@@ -60,6 +61,8 @@ populate_append_edison() {
     install -m 0644 ${DEPLOY_DIR_IMAGE}/${KERNEL_IMAGETYPE}${KERNEL_INITRAMFS}-${MACHINE}.bin ${DEST}/vmlinuz
     # copy example NetworkManager config file
     cp -r ${DEPLOY_DIR_IMAGE}/system-connections ${DEST}
+    # copy the flag file for resinHUP
+    cp ${DEPLOY_DIR_IMAGE}/${RESIN_IMAGE_FLAG_FILE} ${DEST}
 }
 
 # XXX
