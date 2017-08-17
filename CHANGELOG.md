@@ -1,6 +1,7 @@
 Change log
 -----------
 
+* Use meta-resin-jethro for BBLAYERS_NON_REMOVABLE too in bblayers.conf.sample [Florin]
 * Integrate the resin u-boot implementation [Theodor]
 
 # v2.2.0+rev2 - 2017-08-01
