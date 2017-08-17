@@ -1,6 +1,9 @@
 Change log
 -----------
 
+# v2.3.0+rev1 - 2017-08-17
+
+* Update the meta-resin submodule to version v2.3.0 [Florin]
 * Use meta-resin-jethro for BBLAYERS_NON_REMOVABLE too in bblayers.conf.sample [Florin]
 * Integrate the resin u-boot implementation [Theodor]
 
