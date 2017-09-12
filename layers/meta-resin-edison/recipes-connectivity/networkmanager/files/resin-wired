@@ -1,0 +1,12 @@
+[connection-smsc9514]
+id=resin-wired
+type=ethernet
+ethernet.cloned-mac-address=stable
+match-device=driver:smsc95xx
+
+[ipv4]
+method=auto
+
+[ipv6]
+addr-gen-mode=stable-privacy
+method=auto
