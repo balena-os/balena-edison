@@ -1,0 +1,373 @@
+usb: eth: smsc95xx: Add EEPROM access support for LAN9514
+
+Use the new ethernet eeprom API to allow the user to read/write the
+EEPROM.
+
+Signed-off-by: Alban Bedel <alban.bedel@avionic-design.de>
+
+Upstream-Status: Inappropriate
+
+Signed-off-by: Florin Sarbu <florin@resin.io>
+---
+ drivers/usb/eth/smsc95xx.c | 268 +++++++++++++++++++++++++++++++++++++++++----
+ include/usb_ether.h        |   9 ++
+ 2 files changed, 257 insertions(+), 20 deletions(-)
+
+diff --git a/drivers/usb/eth/smsc95xx.c b/drivers/usb/eth/smsc95xx.c
+index dc8fa88..d23dbd7 100644
+--- a/drivers/usb/eth/smsc95xx.c
++++ b/drivers/usb/eth/smsc95xx.c
+@@ -63,6 +63,8 @@
+ 
+ #define E2P_CMD				0x30
+ #define E2P_CMD_BUSY_			0x80000000
++#define E2P_CMD_EWEN_			0x20000000
++#define E2P_CMD_WRITE_			0x30000000
+ #define E2P_CMD_READ_			0x00000000
+ #define E2P_CMD_TIMEOUT_		0x00000400
+ #define E2P_CMD_LOADED_			0x00000200
+@@ -155,6 +157,155 @@ struct smsc95xx_private {
+ 	int have_hwaddr;  /* 1 if we have a hardware MAC address */
+ };
+ 
++#ifdef CONFIG_CMD_ETH_EEPROM
++struct smsc95xx_eeprom_device {
++	unsigned short vendor;
++	unsigned short product;
++	struct smsc95xx_eeprom_defaults *defaults;
++};
++
++/* Default values as used by the controller when the EEPROM hasn't
++ * been programmed yet. Note that when unset the MAC address has
++ * all bits set instead of all bits cleared as is usual in u-boot. */
++static u8 smsc9514_eeprom_defaults_data[] = {
++	/* 0x00 */
++	0xA5,		/* Signature */
++	0xFF, 0xFF,	/* MAC bytes 0-1 */
++	0xFF, 0xFF,	/* MAC bytes 2-3 */
++	0xFF, 0xFF,	/* MAC bytes 4-5 */
++	0x01,		/* FS Polling Interval for Interrupt Endpoint */
++	0x04,		/* HS Polling Interval for Interrupt Endpoint */
++	0x05,		/* Configuration Flags */
++	0x09, 0x04,	/* Language ID */
++	0x0a,		/* Manufacturer ID String Descriptor Length (bytes) */
++	0x2f,		/* Manufacturer ID String Descriptor EEPROM Word Offset */
++	0x10,		/* Product Name String Descriptor Length (bytes) */
++	0x34,		/* Product Name String Descriptor EEPROM Word Offset */
++	/* 0x10 */
++	0x12,		/* Serial Number String Descriptor Length (bytes) */
++	0x3c,		/* Serial Number String Descriptor EEPROM Word Offset */
++	0x08,		/* Configuration String Descriptor Length (bytes) */
++	0x45,		/* Configuration String Descriptor Word Offset */
++	0x08,		/* Interface String Descriptor Length (bytes) */
++	0x49,		/* Interface String Descriptor Word Offset */
++	0x12,		/* Hi-Speed Device Descriptor Length (bytes) */
++	0x1d,		/* Hi-Speed Device Descriptor Word Offset */
++	0x12,		/* Hi-Speed Configuration and Interface Descriptor Length (bytes) */
++	0x26,		/* Hi-Speed Configuration and Interface Descriptor Word Offset */
++	0x12,		/* Full-Speed Device Descriptor Length (bytes) */
++	0x1d,		/* Full-Speed Device Descriptor Word Offset */
++	0x12,		/* Full-Speed Configuration and Interface Descriptor Length (bytes) */
++	0x26,		/* Full-Speed Configuration and Interface Descriptor Word Offset */
++	0x00, 0x00,	/* RESERVED */
++	/* 0x20 */
++	0x24, 0x04,	/* Vendor ID */
++	0x14, 0x95,	/* Product ID */
++	0x00, 0x01,	/* Device ID */
++	0x9b,		/* Config Data Byte 1 Register (CFG1) */
++	0x18,		/* Config Data Byte 2 Register (CFG2) */
++	0x00,		/* Config Data Byte 3 Register (CFG3) */
++	0x02,		/* Non-Removable Devices Register (NRD) */
++	0x00,		/* Port Disable (Self) Register (PDS) */
++	0x00,		/* Port Disable (Bus) Register (PDB) */
++	0x01,		/* Max Power (Self) Register (MAXPS) */
++	0x00,		/* Max Power (Bus) Register (MAXPB) */
++	0x01,		/* Hub Controller Max Current (Self) Register (HCMCS) */
++	0x00,		/* Hub Controller Max Current (Bus) Register (HCMCB) */
++	/* 0x30 */
++	0x32,		/* Power-on Time Register (PWRT) */
++	0x00,		/* Boost_Up Register (BOOSTUP) */
++	0x00,		/* Boost_5 Register (BOOST5) */
++	0x00,		/* Boost_4:2 Register (BOOST42) */
++	0x00,		/* RESERVED */
++	0x00,		/* Port Swap Register (PRTSP) */
++	0x21,		/* Port Remap 12 Register (PRTR12) */
++	0x43,		/* Port Remap 34 Register (PRTR34) */
++	0x05,		/* Port Remap 5 Register (PRTR5) */
++	0x01,		/* Status/Command Register (STCD) */
++	/* 0x3A		 - Device Descriptor */
++	0x12, 0x01,
++	0x00, 0x02,
++	0xff, 0x00,
++	/* 0x40 */
++	0xff, 0x40,
++	0x24, 0x04,
++	0x00, 0xec,
++	0x00, 0x01,
++	0x01, 0x02,
++	0x03, 0x01,
++	/* 0x4C		 - Configuration and Interface Descriptor */
++	0x09, 0x02,
++	0x27, 0x00,
++	/* 0x50 */
++	0x01, 0x01,
++	0x04, 0xc0,
++	0x00, 0x09,
++	0x04, 0x00,
++	0x00, 0x03,
++	0xff, 0x00,
++	0xff, 0x05,
++	/* 0x5E		 - Manufacturer ID String Descriptor */
++	0x0a, 0x03,
++	/* 0x60 */
++	0x53, 0x00,	/* S */
++	0x4d, 0x00,	/* M */
++	0x53, 0x00,	/* S */
++	0x43, 0x00,	/* C */
++	/* 0x68		 - Product Name String */
++	0x10, 0x03,
++	0x4c, 0x00,	/* L */
++	0x41, 0x00,	/* A */
++	0x4e, 0x00,	/* N */
++	/* 0x70 */
++	0x39, 0x00,	/* 9 */
++	0x35, 0x00,	/* 5 */
++	0x31, 0x00,	/* 1 */
++	0x34, 0x00,	/* 5 */
++	/* 0x78		 - Serial Number String Descriptor */
++	0x12, 0x03,
++	0x31, 0x00,	/* 1 */
++	0x32, 0x00,	/* 2 */
++	0x33, 0x00,	/* 3 */
++	/* 0x80 */
++	0x34, 0x00,	/* 4 */
++	0x35, 0x00,	/* 5 */
++	0x36, 0x00,	/* 6 */
++	0x37, 0x00,	/* 7 */
++	0x38, 0x00,	/* 8 */
++	/* 0x8A		 - Configuration String Descriptor */
++	0x08, 0x03,
++	0x43, 0x00,	/* C */
++	0x66, 0x00,	/* f */
++	/* 0x90 */
++	0x67, 0x00,	/* g */
++	/* 0x92		 - Interface String Descriptor */
++	0x08, 0x03,
++	0x69, 0x00,	/* i */
++	0x2f, 0x00,	/* / */
++	0x66, 0x00,	/* f */
++	/* 0x9A - END */
++	0x00, 0x00,
++	0x00, 0x00,
++	0x00, 0x00,
++	/* 0xA0 */
++};
++
++/* This can be overriden by the board to use custom data */
++struct smsc95xx_eeprom_defaults __weak smsc9514_eeprom_defaults = {
++	.data = smsc9514_eeprom_defaults_data,
++	.size = ARRAY_SIZE(smsc9514_eeprom_defaults_data),
++};
++
++static struct smsc95xx_eeprom_device smsc95xx_eeprom_devices[] = {
++	{
++		.vendor   = 0x0424,
++		.product  = 0x9514,
++		.defaults = &smsc9514_eeprom_defaults,
++	},
++	{}
++};
++#endif
++
+ /*
+  * Smsc95xx infrastructure commands
+  */
+@@ -296,31 +447,107 @@ static int smsc95xx_wait_eeprom(struct usb_device *udev)
+ 	return 0;
+ }
+ 
+-static int smsc95xx_read_eeprom(struct usb_device *udev, u32 offset, u32 length,
+-				u8 *data)
++static int smsc95xx_read_eeprom(struct eth_device *eth, u32 offset, u32 length,
++			u8 *data)
+ {
++	struct ueth_data *dev = (struct ueth_data *)eth->priv;
+ 	u32 val;
+ 	int i, ret;
+ 
+-	ret = smsc95xx_eeprom_confirm_not_busy(udev);
++	ret = smsc95xx_eeprom_confirm_not_busy(dev);
+ 	if (ret)
+ 		return ret;
+ 
+ 	for (i = 0; i < length; i++) {
+ 		val = E2P_CMD_BUSY_ | E2P_CMD_READ_ | (offset & E2P_CMD_ADDR_);
+-		smsc95xx_write_reg(udev, E2P_CMD, val);
++		smsc95xx_write_reg(dev, E2P_CMD, val);
+ 
+-		ret = smsc95xx_wait_eeprom(udev);
++		ret = smsc95xx_wait_eeprom(dev);
+ 		if (ret < 0)
+ 			return ret;
+ 
+-		smsc95xx_read_reg(udev, E2P_DATA, &val);
++		smsc95xx_read_reg(dev, E2P_DATA, &val);
+ 		data[i] = val & 0xFF;
+ 		offset++;
+ 	}
+ 	return 0;
+ }
+ 
++#ifdef CONFIG_CMD_ETH_EEPROM
++static int smsc95xx_write_eeprom(struct eth_device *eth, u32 offset, u32 length,
++			u8 *data)
++{
++	struct ueth_data *dev = (struct ueth_data *)eth->priv;
++	u32 val;
++	int i, ret;
++
++	ret = smsc95xx_eeprom_confirm_not_busy(dev);
++	if (ret)
++		return ret;
++
++	/* Issue write/erase enable command */
++	val = E2P_CMD_BUSY_ | E2P_CMD_EWEN_;
++	ret = smsc95xx_write_reg(dev, E2P_CMD, val);
++	if (ret < 0)
++		return ret;
++
++	ret = smsc95xx_wait_eeprom(dev);
++	if (ret < 0)
++		return ret;
++
++	for (i = 0; i < length; i++) {
++		/* Fill data register */
++		val = data[i];
++		ret = smsc95xx_write_reg(dev, E2P_DATA, val);
++		if (ret < 0)
++			return ret;
++
++		/* Send "write" command */
++		val = E2P_CMD_BUSY_ | E2P_CMD_WRITE_ |
++			(offset & E2P_CMD_ADDR_);
++		ret = smsc95xx_write_reg(dev, E2P_CMD, val);
++		if (ret < 0)
++			return ret;
++
++		ret = smsc95xx_wait_eeprom(dev);
++		if (ret < 0)
++			return ret;
++
++		offset++;
++	}
++	return 0;
++}
++
++static int smsc95xx_defaults_eeprom(struct eth_device *eth)
++{
++	struct ueth_data *ueth = (struct ueth_data *)eth->priv;
++	struct smsc95xx_eeprom_defaults *dflt;
++	struct usb_device *usb_dev;
++	int i;
++
++	/* Try to find the device type, we must look at the parent to handle
++	 * devices like the LAN9512 and LAN9514 that include a usb hub. */
++	for (usb_dev = ueth->pusb_dev, dflt = NULL;
++	     usb_dev && !dflt;
++	     usb_dev = usb_dev->parent) {
++		for (i = 0; smsc95xx_eeprom_devices[i].defaults; i++) {
++			if (smsc95xx_eeprom_devices[i].vendor ==
++			    usb_dev->descriptor.idVendor &&
++			    smsc95xx_eeprom_devices[i].product ==
++			    usb_dev->descriptor.idProduct) {
++				dflt = smsc95xx_eeprom_devices[i].defaults;
++				break;
++			}
++		}
++	}
++
++	if (dflt && dflt->data && dflt->size > 0)
++		return smsc95xx_write_eeprom(eth, 0, dflt->size, dflt->data);
++
++	return -1;
++}
++#endif
++
+ /*
+  * mii_nway_restart - restart NWay (autonegotiation) for this interface
+  *
+@@ -361,20 +588,16 @@ static int smsc95xx_phy_initialize(struct usb_device *udev,
+ 	return 0;
+ }
+ 
+-static int smsc95xx_init_mac_address(unsigned char *enetaddr,
+-				     struct usb_device *udev)
++static int smsc95xx_init_mac_address(struct eth_device *eth)
+ {
+-	int ret;
+-
+ 	/* try reading mac address from EEPROM */
+-	ret = smsc95xx_read_eeprom(udev, EEPROM_MAC_OFFSET, ETH_ALEN, enetaddr);
+-	if (ret)
+-		return ret;
+-
+-	if (is_valid_ethaddr(enetaddr)) {
+-		/* eeprom values are valid so use them */
+-		debug("MAC address read from EEPROM\n");
+-		return 0;
++	if (smsc95xx_read_eeprom(eth, EEPROM_MAC_OFFSET, ETH_ALEN,
++				eth->enetaddr) == 0) {
++		if (is_valid_ethaddr(eth->enetaddr)) {
++			/* eeprom values are valid so use them */
++			debug("MAC address read from EEPROM\n");
++			return 0;
++		}
+ 	}
+ 
+ 	/*
+@@ -518,8 +741,7 @@ static int smsc95xx_init_common(struct usb_device *udev, struct ueth_data *dev,
+ 		debug("timeout waiting for PHY Reset\n");
+ 		return -ETIMEDOUT;
+ 	}
+-	if (!priv->have_hwaddr && smsc95xx_init_mac_address(enetaddr, udev) ==
+-			0)
++	if (!priv->have_hwaddr && smsc95xx_init_mac_address(eth) == 0)
+ 		priv->have_hwaddr = 1;
+ 	if (!priv->have_hwaddr) {
+ 		puts("Error: SMSC95xx: No MAC address set - set usbethaddr\n");
+@@ -937,6 +1159,12 @@ int smsc95xx_eth_get_info(struct usb_device *dev, struct ueth_data *ss,
+ 	eth->recv = smsc95xx_recv;
+ 	eth->halt = smsc95xx_halt;
+ 	eth->write_hwaddr = smsc95xx_write_hwaddr;
++#ifdef CONFIG_CMD_ETH_EEPROM
++	eth->eeprom_read = smsc95xx_read_eeprom;
++	eth->eeprom_write = smsc95xx_write_eeprom;
++	eth->eeprom_defaults = smsc95xx_defaults_eeprom;
++	eth->eeprom_mac_offset = EEPROM_MAC_OFFSET;
++#endif
+ 	eth->priv = ss;
+ 	return 1;
+ }
+diff --git a/include/usb_ether.h b/include/usb_ether.h
+index c6d1416..b858142 100644
+--- a/include/usb_ether.h
++++ b/include/usb_ether.h
+@@ -131,6 +131,15 @@ int smsc95xx_eth_probe(struct usb_device *dev, unsigned int ifnum,
+ 			struct ueth_data *ss);
+ int smsc95xx_eth_get_info(struct usb_device *dev, struct ueth_data *ss,
+ 			struct eth_device *eth);
++
++/* Default EEPROM data, to allow the boards to override it */
++struct smsc95xx_eeprom_defaults {
++	u8 *data;
++	u32 size;
++};
++
++extern struct smsc95xx_eeprom_defaults smsc9514_eeprom_defaults;
++
+ #endif
+ 
+ #endif /* __USB_ETHER_H__ */
+-- 
+2.7.4
+
