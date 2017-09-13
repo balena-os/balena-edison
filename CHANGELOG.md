@@ -1,6 +1,10 @@
 Change log
 -----------
 
+# v2.4.2+rev1
+## (2017-09-13)
+
+* Update the meta-resin submodule to version v2.4.2 [Florin]
 * Make NetworkManager generate stable random MAC addresses for SMSC9514 devices [Florin]
 
 # v2.3.0+rev1
