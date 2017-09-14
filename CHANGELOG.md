@@ -1,6 +1,8 @@
 Change log
 -----------
 
+* Fix the resin-wired keyfile so NetworkManager can correctly set a stable random MAC address for ethernet connections [Gergely]
+
 # v2.4.2+rev1
 ## (2017-09-13)
 
