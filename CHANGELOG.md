@@ -1,6 +1,7 @@
 Change log
 -----------
 
+* Update resin-yocto-scripts to HEAD of master branch [Florin]
 * Include meta-rust layer [Will]
 * Add meta-rust layer [Will]
 
