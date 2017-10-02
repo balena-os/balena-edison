@@ -1,6 +1,10 @@
 Change log
 -----------
 
+# v2.7.2+rev1
+## (2017-10-05)
+
+* Update the meta-resin submodule to version v2.7.2 [Florin]
 * Update resin-yocto-scripts to HEAD of master branch [Florin]
 * Update meta-rust to morty [Will]
 * Include meta-rust layer [Will]
