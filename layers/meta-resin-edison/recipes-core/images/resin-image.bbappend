@@ -16,7 +16,7 @@ PCBIOS_edison = "0"
 IMAGE_FSTYPES_append_edison = " hddimg"
 
 # We currently use ext3 rootfs partitions
-IMAGE_TYPEDEP_hddimg = "ext3"
+IMAGE_TYPEDEP_hddimg = "ext3 hostapp-ext4"
 
 BOOTIMG_VOLUME_ID_edison = "resin-boot"
 
