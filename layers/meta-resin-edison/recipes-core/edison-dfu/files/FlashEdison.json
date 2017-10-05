@@ -225,7 +225,7 @@
     "description" : "Rootfs",
     "name" : "Rootfs",
     "type" : "file",
-    "value" : "resin-image-edison.ext3"
+    "value" : "resin-image-edison.ext4"
    },
    "state_file" :    {
     "description" : "state",
