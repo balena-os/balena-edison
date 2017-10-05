@@ -15,8 +15,8 @@ PCBIOS_edison = "0"
 # Specify rootfs image type
 IMAGE_FSTYPES_append_edison = " hddimg"
 
-# We currently use ext3 rootfs partitions
-IMAGE_TYPEDEP_hddimg = "ext3 hostapp-ext4"
+# We currently use ext4 rootfs partitions
+IMAGE_TYPEDEP_hddimg = "ext4 hostapp-ext4"
 
 BOOTIMG_VOLUME_ID_edison = "resin-boot"
 
@@ -36,7 +36,7 @@ IMAGE_POSTPROCESS_COMMAND_append_edison = " \
 
 define_labels() {
     #Missing labels
-    e2label ${DEPLOY_DIR_IMAGE}/resin-image-edison.ext3 ${RESIN_ROOTA_FS_LABEL}
+    e2label ${DEPLOY_DIR_IMAGE}/resin-image-edison.ext4 ${RESIN_ROOTA_FS_LABEL}
     e2label ${DEPLOY_DIR_IMAGE}/resin-data.img ${RESIN_DATA_FS_LABEL}
 }
 
@@ -51,7 +51,7 @@ deploy_bundle() {
     cp -rL ${DEPLOY_DIR_IMAGE}/u-boot-edison.bin ${DEPLOY_DIR_IMAGE}/resin-edison/
     cp -rL ${DEPLOY_DIR_IMAGE}/u-boot-edison.img ${DEPLOY_DIR_IMAGE}/resin-edison/
     cp -rL ${DEPLOY_DIR_IMAGE}/u-boot-envs ${DEPLOY_DIR_IMAGE}/resin-edison/
-    cp -rL ${DEPLOY_DIR_IMAGE}/resin-image-edison.ext3 ${DEPLOY_DIR_IMAGE}/resin-edison/
+    cp -rL ${DEPLOY_DIR_IMAGE}/resin-image-edison.ext4 ${DEPLOY_DIR_IMAGE}/resin-edison/
     cp -rL ${DEPLOY_DIR_IMAGE}/resin-data.img ${DEPLOY_DIR_IMAGE}/resin-edison/
     cp -rL ${DEPLOY_DIR_IMAGE}/resin-state.img ${DEPLOY_DIR_IMAGE}/resin-edison/
 }
