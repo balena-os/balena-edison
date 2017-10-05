@@ -16,7 +16,11 @@ PCBIOS_edison = "0"
 IMAGE_FSTYPES_append_edison = " hddimg"
 
 # We currently use ext4 rootfs partitions
-IMAGE_TYPEDEP_hddimg = "ext4"
+# Also depend on the rootfs type declared by meta-resin
+IMAGE_TYPEDEP_hddimg = "ext4 ${RESIN_ROOT_FSTYPE}"
+
+# force the rootfs creation task depend on the existence of mkfs-hostapp-native in the sysroot
+do_rootfs[depends] += "mkfs-hostapp-native:do_populate_sysroot"
 
 BOOTIMG_VOLUME_ID_edison = "resin-boot"
 
