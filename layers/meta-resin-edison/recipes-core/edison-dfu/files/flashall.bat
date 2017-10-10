@@ -147,8 +147,11 @@ echo "Flashing resin-data, ^(it can take up to 5 minutes... Please be patient^)"
 call:flash-command --alt resin-data -D "%BASE_DIR%resin-data.img"
 if %errorlevel% neq 0 ( exit /b %errorlevel%)
 
-echo Flashing rootfs, ^(it can take up to 5 minutes... Please be patient^)
-call:flash-command --alt resin-rootA -D "%BASE_DIR%resin-image-edison.hostapp-ext4" -R
+echo Flashing rootfs (resin-rootA), ^(it can take up to 5 minutes... Please be patient^)
+call:flash-command --alt resin-rootA -D "%BASE_DIR%resin-image-edison.hostapp-ext4"
+if %errorlevel% neq 0 ( exit /b %errorlevel% )
+echo Flashing secondary rootfs partition (resin-rootB), ^(it can take up to 5 minutes... Please be patient^)
+call:flash-command --alt resin-rootB -D "%BASE_DIR%resin-rootB.img" -R
 if %errorlevel% neq 0 ( exit /b %errorlevel% )
 
 echo Rebooting
