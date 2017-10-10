@@ -233,8 +233,11 @@ else
 	echo "Flashing resin-data, (it can take up to 5 minutes... Please be patient)"
 	flash-command --alt resin-data -D "${ESC_BASE_DIR}/resin-data.img"
 
-	echo "Flashing rootfs, (it can take up to 5 minutes... Please be patient)"
-	flash-command --alt resin-rootA -D "${ESC_BASE_DIR}/resin-image-edison.hostapp-ext4" -R
+	echo "Flashing rootfs (resin-rootA), (it can take up to 5 minutes... Please be patient)"
+	flash-command --alt resin-rootA -D "${ESC_BASE_DIR}/resin-image-edison.hostapp-ext4"
+
+	echo "Flashing secondary rootfs partition (resin-rootB), (it can take up to 5 minutes... Please be patient)"
+	flash-command --alt resin-rootB -D "${ESC_BASE_DIR}/resin-rootB.img" -R
 
 	echo "Rebooting"
 	echo "U-boot & Kernel System Flash Success..."
