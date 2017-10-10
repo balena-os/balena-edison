@@ -1,6 +1,7 @@
 Change log
 -----------
 
+* Create and write the empty ext4 filesystem image onto resin-rootB [Florin]
 * Switch to using the hostapps enabled rootfs instead of the plain ext4 rootfs [Florin]
 
 # v2.7.2+rev1
