@@ -45,6 +45,12 @@ define_labels() {
 }
 
 deploy_bundle() {
+    # Create an empty ext4 filesystem for the second rootfs partition (resin-rootB) big enough to hold the resin image rootfs
+    RESIN_ROOTB_BLOCKS=${IMAGE_ROOTFS_SIZE}
+    rm -rf ${DEPLOY_DIR_IMAGE}/resin-rootB.img
+    dd if=/dev/zero of=${DEPLOY_DIR_IMAGE}/resin-rootB.img count=${RESIN_ROOTB_BLOCKS} bs=1024
+    mkfs.ext4 -F -L "${RESIN_ROOTB_FS_LABEL}" ${DEPLOY_DIR_IMAGE}/resin-rootB.img
+
     # Create an empty ext4 filesystem for our config partition
     RESIN_STATE_BLOCKS=${RESIN_STATE_SIZE}
     rm -rf ${DEPLOY_DIR_IMAGE}/resin-state.img
@@ -57,6 +63,7 @@ deploy_bundle() {
     cp -rL ${DEPLOY_DIR_IMAGE}/u-boot-envs ${DEPLOY_DIR_IMAGE}/resin-edison/
     cp -rL ${DEPLOY_DIR_IMAGE}/resin-image-edison.${RESIN_ROOT_FSTYPE} ${DEPLOY_DIR_IMAGE}/resin-edison/
     cp -rL ${DEPLOY_DIR_IMAGE}/resin-data.img ${DEPLOY_DIR_IMAGE}/resin-edison/
+    cp -rL ${DEPLOY_DIR_IMAGE}/resin-rootB.img ${DEPLOY_DIR_IMAGE}/resin-edison/
     cp -rL ${DEPLOY_DIR_IMAGE}/resin-state.img ${DEPLOY_DIR_IMAGE}/resin-edison/
 }
 
