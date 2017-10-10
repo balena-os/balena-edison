@@ -1,6 +1,8 @@
 Change log
 -----------
 
+* Switch to using the hostapps enabled rootfs instead of the plain ext4 rootfs [Florin]
+
 # v2.7.2+rev1
 ## (2017-10-05)
 
