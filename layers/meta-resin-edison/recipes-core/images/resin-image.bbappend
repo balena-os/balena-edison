@@ -40,7 +40,7 @@ IMAGE_POSTPROCESS_COMMAND_append_edison = " \
 
 define_labels() {
     #Missing labels
-    e2label ${DEPLOY_DIR_IMAGE}/resin-image-edison.ext4 ${RESIN_ROOTA_FS_LABEL}
+    e2label ${DEPLOY_DIR_IMAGE}/resin-image-edison.${RESIN_ROOT_FSTYPE} ${RESIN_ROOTA_FS_LABEL}
     e2label ${DEPLOY_DIR_IMAGE}/resin-data.img ${RESIN_DATA_FS_LABEL}
 }
 
@@ -55,7 +55,7 @@ deploy_bundle() {
     cp -rL ${DEPLOY_DIR_IMAGE}/u-boot-edison.bin ${DEPLOY_DIR_IMAGE}/resin-edison/
     cp -rL ${DEPLOY_DIR_IMAGE}/u-boot-edison.img ${DEPLOY_DIR_IMAGE}/resin-edison/
     cp -rL ${DEPLOY_DIR_IMAGE}/u-boot-envs ${DEPLOY_DIR_IMAGE}/resin-edison/
-    cp -rL ${DEPLOY_DIR_IMAGE}/resin-image-edison.ext4 ${DEPLOY_DIR_IMAGE}/resin-edison/
+    cp -rL ${DEPLOY_DIR_IMAGE}/resin-image-edison.${RESIN_ROOT_FSTYPE} ${DEPLOY_DIR_IMAGE}/resin-edison/
     cp -rL ${DEPLOY_DIR_IMAGE}/resin-data.img ${DEPLOY_DIR_IMAGE}/resin-edison/
     cp -rL ${DEPLOY_DIR_IMAGE}/resin-state.img ${DEPLOY_DIR_IMAGE}/resin-edison/
 }
