@@ -131,8 +131,17 @@
     "tool" : "dfuDownloader"
    },
    {
-    "args" : "\"--alt\" \"resin-rootA\" \"-D\" \"${rootfs_file}\" \"-t\" \"4096\" \"-R\"",
-    "description" : "Flashing rootfs",
+    "args" : "\"--alt\" \"resin-rootA\" \"-D\" \"${rootfs_file}\" \"-t\" \"4096\"",
+    "description" : "Flashing rootfs (resin-rootA)",
+    "mandatory" : true,
+    "restrict" : null,
+    "retry" : 2,
+    "timeout" : 1200000,
+    "tool" : "dfuDownloader"
+   },
+   {
+    "args" : "\"--alt\" \"resin-rootB\" \"-D\" \"${rootfs_file_secondary}\" \"-t\" \"4096\" \"-R\"",
+    "description" : "Flashing secondary rootfs partition (resin-rootB)",
     "mandatory" : true,
     "restrict" : null,
     "retry" : 2,
@@ -226,6 +235,12 @@
     "name" : "Rootfs",
     "type" : "file",
     "value" : "resin-image-edison.hostapp-ext4"
+   },
+   "rootfs_file_secondary" :   {
+    "description" : "Rootfs secondary",
+    "name" : "Rootfs",
+    "type" : "file",
+    "value" : "resin-rootB.img"
    },
    "state_file" :    {
     "description" : "state",
