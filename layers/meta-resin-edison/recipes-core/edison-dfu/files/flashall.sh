@@ -234,7 +234,7 @@ else
 	flash-command --alt resin-data -D "${ESC_BASE_DIR}/resin-data.img"
 
 	echo "Flashing rootfs, (it can take up to 5 minutes... Please be patient)"
-	flash-command --alt resin-rootA -D "${ESC_BASE_DIR}/resin-image-edison.ext4" -R
+	flash-command --alt resin-rootA -D "${ESC_BASE_DIR}/resin-image-edison.hostapp-ext4" -R
 
 	echo "Rebooting"
 	echo "U-boot & Kernel System Flash Success..."
