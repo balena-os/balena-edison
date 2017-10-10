@@ -1,6 +1,7 @@
 Change log
 -----------
 
+* Install in the rootfs the 99-resin-uboot hostapp hook needed for u-boot to switch the root partition when doing host OS updates [Florin]
 * Create and write the empty ext4 filesystem image onto resin-rootB [Florin]
 * Switch to using the hostapps enabled rootfs instead of the plain ext4 rootfs [Florin]
 
