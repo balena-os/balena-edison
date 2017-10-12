@@ -1,6 +1,8 @@
 Change log
 -----------
 
+* Update resin-yocto-scripts to 3189445fe8a3d3eb59532a2f3bca2a36a3af0856 [Florin]
+
 # v2.4.2+rev1
 ## (2017-09-13)
 
