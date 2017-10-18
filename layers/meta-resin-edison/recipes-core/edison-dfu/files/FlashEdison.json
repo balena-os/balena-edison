@@ -151,10 +151,7 @@
    {
     "duration" : 60000,
     "restrict" : null,
-    "source" : "Edison board needs to reboot<br />
-                Please do not unplug it for 2 minutes<br /><br />
-                On Arduino board, led will stop blinking at boot completed<br /><br />
-                <img src='Edison-arduino-blink-led.png' width='390' />",
+    "source" : "Edison board needs to reboot<br /> Please do not unplug it for 2 minutes<br /><br /> On Arduino board, led will stop blinking at boot completed<br /><br /> <img src='Edison-arduino-blink-led.png' width='390' />",
     "tool" : "notifier"
    }
   ],
