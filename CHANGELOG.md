@@ -1,6 +1,8 @@
 Change log
 -----------
 
+* Fix the FlashEdison.json file: remove unescaped newlines in strings [Alexis]
+
 # v2.7.2+rev2
 ## (2017-10-10)
 
