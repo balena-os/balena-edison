@@ -1,6 +1,7 @@
 Change log
 -----------
 
+* Switch to Yocto Pyro [Florin]
 * Fix the FlashEdison.json file: remove unescaped newlines in strings [Alexis]
 
 # v2.7.2+rev2
