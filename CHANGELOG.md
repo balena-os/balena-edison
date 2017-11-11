@@ -1,6 +1,7 @@
 Change log
 -----------
 
+* Switch to the Intel Edison BSP (pyro branch) which allows us to use kernel 4.13.0 [Florin]
 * Switch to Yocto Pyro [Florin]
 * Fix the FlashEdison.json file: remove unescaped newlines in strings [Alexis]
 
