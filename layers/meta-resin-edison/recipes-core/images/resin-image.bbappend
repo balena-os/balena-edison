@@ -1,6 +1,6 @@
 NOHDD_edison = "0"
 
-inherit bootimg
+inherit image-live
 
 # TODO
 # This was already fixed in poky but fix was not backported to daisy
