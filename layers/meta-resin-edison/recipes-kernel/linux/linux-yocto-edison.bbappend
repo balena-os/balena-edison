@@ -1,47 +1,46 @@
-FILESEXTRAPATHS_prepend_edison := "${THISDIR}/files:"
-
-# Use the stable version of linux
-LINUX_VERSION = "3.10.98"
-SRC_URI = " \
-    git://github.com/01org/edison-linux.git;protocol=git;branch=edison-${LINUX_VERSION};nocheckout=1;name=machine \
-    file://defconfig \
-    file://do_not_expose_mmc_boot_partitions.patch \
-    file://0001-Btrfs-fix-not-being-able-to-find-skinny-extents-duri.patch \
-    file://0001-Revert-get-rid-of-s_files-and-files_lock.patch \
-    file://aufs-builtin.patch \
-    file://adapt_aufs_changes.patch \
-    "
-
-SRCREV_machine = "edison-3.10.98"
-
 inherit kernel-resin
 
-# Fix the KERNEL_OUTPUT variable
-# Bug introduced in a6f52930a68d8462e23486d51cdda715072dd752
-KERNEL_OUTPUT = "arch/x86/boot/${KERNEL_IMAGETYPE}"
-
-# GCC now defaults to -std=gnu11.
-#   commit b2601928b5bf34a817b5a9a2a371c476018e634d
-#   Author: mpolacek <mpolacek@138bc75d-0d04-0410-961f-82ee72b054a4>
-#   Date:   Wed Oct 15 10:08:00 2014 +0000
-# GNU 90 and C99 have different "extern inline" behavior.
-# Compile thie kernel version with -std=gnu89 for backwards compatibility.
-# Ref.: https://gcc.gnu.org/bugzilla/show_bug.cgi?format=multiple&id=63592
-KERNEL_CC_append = " -std=gnu89"
-
-# Deactivate AUDIT to avoid different kernel errors
-RESIN_CONFIGS_append = " noaudit"
-RESIN_CONFIGS[noaudit] = "CONFIG_AUDIT=n"
-
-# CONFIG_NETFILTER_XT_MATCH_SOCKET is built in (from edison defconfig). This
-# compiles xt_socket.c build in which makes CONFIG_NF_DEFRAG_IPV6 needed
-# to be built in too (because it calls nf_defrag_ipv6_enable).
-# CONFIG_IP6_NF_IPTABLES being set as module will trigger CONFIG_NF_DEFRAG_IPV6
-# as a module too making the reference (nf_defrag_ipv6_enable) not available.
-RESIN_CONFIGS_DEPS[ip6tables_nat] = " \
-    CONFIG_NF_CONNTRACK_IPV6=m \
-    CONFIG_IP6_NF_IPTABLES=y \
-    "
-
+# enable USB hub kernel module as requested by customer
 RESIN_CONFIGS_append = " smsc95xx"
 RESIN_CONFIGS[smsc95xx] = "CONFIG_USB_NET_SMSC95XX=m"
+
+# add mmc support as module so it does not conflict with the WiFi (WiFi breaks when sdhci is compiled in the kernel as opposed to being a module)
+RESIN_CONFIGS_append = " mmc_module"
+RESIN_CONFIGS[mmc_module] = "\
+    CONFIG_MMC=m \
+    CONFIG_MMC_BLOCK=m \
+    CONFIG_MMC_SDHCI=m \
+    CONFIG_MMC_SDHCI_PCI=m \
+    "
+
+# compile i2c support as module as a workaround to get i2c-6 working (https://svenschwermer.de/2017/10/14/intel-edison-i2c6-with-vanilla-linux.html)
+RESIN_CONFIGS_append = " i2c_module"
+RESIN_CONFIGS[i2c_module] = "\
+    CONFIG_I2C_DESIGNWARE_CORE=m \
+    CONFIG_I2C_DESIGNWARE_PCI=m \
+    "
+
+# enabling only host mode because at this point having CONFIG_USB_DWC3_DUAL_ROLE won't get host mode working correctly (lsusb will complain with: unable to initialize libusb: -99)
+RESIN_CONFIGS_append = " dwc3_host_mode"
+RESIN_CONFIGS[dwc3_host_mode] = "CONFIG_USB_DWC3_HOST=y"
+
+# enable ftdi_sio as a module (as requested by customer)
+RESIN_CONFIGS_append = " ftdi_sio"
+RESIN_CONFIGS[ftdi_sio] = "CONFIG_USB_SERIAL_FTDI_SIO=m"
+
+# let's allow for /dev/i2c-* devices to be created (this enables userspace to use the I2C buses)
+RESIN_CONFIGS_append = " i2c_chardev"
+RESIN_CONFIGS[i2c_chardev] = "CONFIG_I2C_CHARDEV=y"
+
+# compile uvcvideo.ko (as requested by customer)
+RESIN_CONFIGS_append = " uvcvideo"
+RESIN_CONFIGS[uvcvideo] = "CONFIG_USB_VIDEO_CLASS=m"
+RESIN_CONFIGS_DEPS[uvcvideo] = "\
+    CONFIG_MEDIA_SUPPORT=m \
+    CONFIG_MEDIA_USB_SUPPORT=y \
+    CONFIG_MEDIA_CAMERA_SUPPORT=y \
+    "
+
+# compile cdc-acm.ko (as requested by customer)
+RESIN_CONFIGS_append = " cdc-acm"
+RESIN_CONFIGS[cdc-acm] = "CONFIG_USB_ACM=m"
