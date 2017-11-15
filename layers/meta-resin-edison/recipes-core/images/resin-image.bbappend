@@ -40,7 +40,7 @@ IMAGE_POSTPROCESS_COMMAND_append_edison = " \
 
 define_labels() {
     #Missing labels
-    e2label ${DEPLOY_DIR_IMAGE}/resin-image-edison.${RESIN_ROOT_FSTYPE} ${RESIN_ROOTA_FS_LABEL}
+    e2label ${IMGDEPLOYDIR}/resin-image-edison.${RESIN_ROOT_FSTYPE} ${RESIN_ROOTA_FS_LABEL}
     e2label ${DEPLOY_DIR_IMAGE}/resin-data.img ${RESIN_DATA_FS_LABEL}
 }
 
@@ -61,19 +61,19 @@ deploy_bundle() {
     cp -rL ${DEPLOY_DIR_IMAGE}/u-boot-edison.bin ${DEPLOY_DIR_IMAGE}/resin-edison/
     cp -rL ${DEPLOY_DIR_IMAGE}/u-boot-edison.img ${DEPLOY_DIR_IMAGE}/resin-edison/
     cp -rL ${DEPLOY_DIR_IMAGE}/u-boot-envs ${DEPLOY_DIR_IMAGE}/resin-edison/
-    cp -rL ${DEPLOY_DIR_IMAGE}/resin-image-edison.${RESIN_ROOT_FSTYPE} ${DEPLOY_DIR_IMAGE}/resin-edison/
+    cp -rL ${IMGDEPLOYDIR}/resin-image-edison.${RESIN_ROOT_FSTYPE} ${DEPLOY_DIR_IMAGE}/resin-edison/
     cp -rL ${DEPLOY_DIR_IMAGE}/resin-data.img ${DEPLOY_DIR_IMAGE}/resin-edison/
     cp -rL ${DEPLOY_DIR_IMAGE}/resin-rootB.img ${DEPLOY_DIR_IMAGE}/resin-edison/
     cp -rL ${DEPLOY_DIR_IMAGE}/resin-state.img ${DEPLOY_DIR_IMAGE}/resin-edison/
 }
 
-populate_append_edison() {
+populate_live_append_edison() {
     # start using the kernel bundled with the meta-resin initramfs
-    install -m 0644 ${DEPLOY_DIR_IMAGE}/${KERNEL_IMAGETYPE}${KERNEL_INITRAMFS}-${MACHINE}.bin ${DEST}/vmlinuz
+    install -m 0644 ${DEPLOY_DIR_IMAGE}/${KERNEL_IMAGETYPE}${KERNEL_INITRAMFS}-${MACHINE}.bin ${HDDDIR}/vmlinuz
     # copy example NetworkManager config file
-    cp -r ${DEPLOY_DIR_IMAGE}/system-connections ${DEST}
+    cp -r ${DEPLOY_DIR_IMAGE}/system-connections ${HDDDIR}
     # copy the flag file for resinHUP
-    cp ${DEPLOY_DIR_IMAGE}/${RESIN_IMAGE_FLAG_FILE} ${DEST}
+    cp ${DEPLOY_DIR_IMAGE}/${RESIN_IMAGE_FLAG_FILE} ${HDDDIR}
 }
 
 # XXX
@@ -88,6 +88,9 @@ populate_append_edison() {
 build_fat_img() {
 	FATSOURCEDIR=$1
 	FATIMG=$2
+
+	# we do not need the rootfs image and initrd in our boot partition
+	rm -rf ${FATSOURCEDIR}/rootfs.img ${FATSOURCEDIR}/initrd
 
 	# mkdosfs will fail if ${FATIMG} exists. Since we are creating an
 	# new image, it is safe to delete any previous image.
@@ -113,7 +116,11 @@ build_hddimg_prepend_edison() {
 }
 
 build_hddimg_append_edison() {
-    cp -rL ${DEPLOY_DIR_IMAGE}/resin-image-edison.hddimg ${DEPLOY_DIR_IMAGE}/resin-edison/
+    # we need to create the hddimg symlink now when we do the copy ( Yocto Pyro creates this symlink after this build_hddimg function is called)
+    chmod 0644 ${IMGDEPLOYDIR}/${IMAGE_NAME}.hddimg
+    rm -rf ${IMGDEPLOYDIR}/${IMAGE_LINK_NAME}.hddimg
+    ln -s ${IMGDEPLOYDIR}/${IMAGE_NAME}.hddimg ${IMGDEPLOYDIR}/${IMAGE_LINK_NAME}.hddimg
+    cp -rL ${IMGDEPLOYDIR}/resin-image-edison.hddimg ${DEPLOY_DIR_IMAGE}/resin-edison/
 }
 
 # The Edison ships with its own /etc/fstab, which differs from the one
