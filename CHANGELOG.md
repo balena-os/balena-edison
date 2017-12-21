@@ -1,6 +1,9 @@
 Change log
 -----------
 
+# v2.7.8+rev2
+## (2017-12-21)
+
 * Updated layer meta-edison-bsp with patch to enable PWM channels 0,1,2,3 [Sebastian]
 
 # v2.7.8+rev1
