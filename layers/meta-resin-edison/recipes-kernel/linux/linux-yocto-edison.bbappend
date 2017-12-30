@@ -44,3 +44,7 @@ RESIN_CONFIGS_DEPS[uvcvideo] = "\
 # compile cdc-acm.ko (as requested by customer)
 RESIN_CONFIGS_append = " cdc-acm"
 RESIN_CONFIGS[cdc-acm] = "CONFIG_USB_ACM=m"
+
+# add support for fuse (as requested by customer)
+RESIN_CONFIGS_append = " fuse"
+RESIN_CONFIGS[fuse] = "CONFIG_FUSE_FS=m"
