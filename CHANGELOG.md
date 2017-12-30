@@ -1,6 +1,8 @@
 Change log
 -----------
 
+* Add support for FUSE [Florin]
+
 # v2.7.8+rev2
 ## (2017-12-21)
 
