@@ -1,0 +1,3 @@
+ACTION!="add|change", GOTO="mm_tty_blacklist_end"
+SUBSYSTEM=="pci", DRIVERS=="8250_mid", ENV{ID_MM_DEVICE_IGNORE}="1"
+LABEL="mm_tty_blacklist_end"
