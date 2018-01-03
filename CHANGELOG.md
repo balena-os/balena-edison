@@ -1,6 +1,9 @@
 Change log
 -----------
 
+# v2.7.8+rev3
+## (2018-01-03)
+
 * Add bluez5-noinst-tools to the rootfs for having a functional bluetooth [Florin]
 * Update the meta-edison-bsp submodule to f2740e29e74ebf5e4b0a07907db5cedcb673c9b5 (on pyro branch) [Florin]
 * Do not let ModemManager take over ttyS* interfaces [Florin]
