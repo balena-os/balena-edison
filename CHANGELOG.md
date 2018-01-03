@@ -1,6 +1,7 @@
 Change log
 -----------
 
+* Update the meta-edison-bsp submodule to f2740e29e74ebf5e4b0a07907db5cedcb673c9b5 (on pyro branch) [Florin]
 * Do not let ModemManager take over ttyS* interfaces [Florin]
 * Add support for FUSE [Florin]
 
