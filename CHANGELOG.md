@@ -1,6 +1,7 @@
 Change log
 -----------
 
+* Do not let ModemManager take over ttyS* interfaces [Florin]
 * Add support for FUSE [Florin]
 
 # v2.7.8+rev2
