@@ -1,6 +1,10 @@
 Change log
 -----------
 
+# v2.9.7+rev1
+## (2018-02-02)
+
+* Update the meta-resin submodule to version v2.9.7 [Florin]
 * Add hostapp update hook that allows flashing the bootloader when doing host OS updates [Florin]
 * Update the resin-yocto-scripts submodule to d209b8c9c797ebd52a0f5ce404ea2420c248724c (on master branch) [Florin]
 * Update flashing instructions for Edison [Zach]
