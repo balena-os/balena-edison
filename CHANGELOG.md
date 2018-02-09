@@ -1,6 +1,8 @@
 Change log
 -----------
 
+* Update flashing instructions for Edison [Zach]
+
 # v2.7.8+rev3
 ## (2018-01-03)
 
