@@ -5,7 +5,7 @@ OSX_DFU_COREUTILS_USBUTILS = '''
 	You need <a href="https://www.macports.org/">MacPorts</a> installed on your system.
 	<br>
 	Run the following to install <code>dfu-util</code>, <code>usbutils</code> and <code>coreutils</code>:
-	<code>sudo port install dfu-util@0.7 usbutils coreutils && sudo port activate dfu-util@0.7</code>
+	<code>sudo port install dfu-util usbutils coreutils && sudo port activate dfu-util</code>
 '''
 
 UNPLUG = 'Unplug the Intel Edison board from your system.'
@@ -16,6 +16,10 @@ OSX_LINUX_FLASH = '''
 	Execute the following from the unzipped directory:
 	<br>
 	<code>sudo ./flashall.sh</code>
+	<br>
+	If you have trouble executing, you may need to modify the file permissions first:
+	<br>
+	<code>sudo chmod +x ./flashall.sh</code>
 '''
 
 PLUG = '''
@@ -25,7 +29,7 @@ PLUG = '''
 '''
 
 WINDOWS_DRIVERS = 'Install Windows drivers for Edison from
-	<a href="http://downloadmirror.intel.com/24909/eng/IntelEdisonDriverSetup1.2.1.exe">here</a>'
+	<a href="https://downloadmirror.intel.com/26993/eng/IntelEdisonDriverSetup1.2.1.exe">here</a>'
 
 WINDOWS_FLASH = '''
 	Open a terminal with administrative privileges and execute the following from the unzipped directory:
