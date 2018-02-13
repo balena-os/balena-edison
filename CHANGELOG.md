@@ -1,6 +1,8 @@
 Change log
 -----------
 
+* Update meta-edison-bsp submodule to 1446040dadd82e2c87820ea3746628b43a84ee2e (on pyro branch) [Sebastian]
+
 # v2.7.8+rev3
 ## (2018-01-03)
 
