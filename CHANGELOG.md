@@ -1,6 +1,7 @@
 Change log
 -----------
 
+* Add hostapp update hook that allows flashing the bootloader when doing host OS updates [Florin]
 * Update the resin-yocto-scripts submodule to d209b8c9c797ebd52a0f5ce404ea2420c248724c (on master branch) [Florin]
 * Update flashing instructions for Edison [Zach]
 * Update meta-edison-bsp submodule to 1446040dadd82e2c87820ea3746628b43a84ee2e (on pyro branch) [Sebastian]
