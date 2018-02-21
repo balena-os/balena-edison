@@ -38,6 +38,11 @@ IMAGE_POSTPROCESS_COMMAND_append_edison = " \
     deploy_bundle; \
     "
 
+RESIN_BOOT_PARTITION_FILES_append = " \
+    u-boot-edison.bin: \
+    u-boot-envs/edison-blankcdc.bin: \
+"
+
 define_labels() {
     #Missing labels
     e2label ${IMGDEPLOYDIR}/resin-image-edison.${RESIN_ROOT_FSTYPE} ${RESIN_ROOTA_FS_LABEL}
