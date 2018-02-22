@@ -1,6 +1,7 @@
 Change log
 -----------
 
+* Copy various files to the edison's boot partition [Florin]
 * Deploy the kernel in /resin-boot so we also update the kernel when doing hostapps update [Florin]
 
 # v2.9.7+rev1

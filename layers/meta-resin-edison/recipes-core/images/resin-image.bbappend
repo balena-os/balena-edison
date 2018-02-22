@@ -74,6 +74,17 @@ deploy_bundle() {
 }
 
 populate_live_append_edison() {
+    # copy os-release to the boot partition
+    install -m 0644 ${DEPLOY_DIR_IMAGE}/os-release ${HDDDIR}
+    # copy the generated <machine-name>.json to the boot partition, renamed as device-type.json
+    install -m 0644 ../${MACHINE}.json ${HDDDIR}/device-type.json
+    # copy image-version-info to the boot partition
+    install -m 0644 ${IMGDEPLOYDIR}/../resin-boot/image-version-info ${HDDDIR}/
+    # copy the bootfiles resinos.fingerprint to the boot partition
+    install -m 0644 ${IMGDEPLOYDIR}/../resin-boot/resinos.fingerprint ${HDDDIR}/
+    # copy the splash directory over to the boot partition
+    install -d ${HDDDIR}/splash
+    install -m 0755 ${IMGDEPLOYDIR}/../resin-boot/splash/* ${HDDDIR}/splash/
     # start using the kernel bundled with the meta-resin initramfs
     install -m 0644 ${DEPLOY_DIR_IMAGE}/${KERNEL_IMAGETYPE}${KERNEL_INITRAMFS}-${MACHINE}.bin ${HDDDIR}/vmlinuz
     # copy example NetworkManager config file
