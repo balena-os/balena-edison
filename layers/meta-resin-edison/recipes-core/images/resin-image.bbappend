@@ -41,6 +41,7 @@ IMAGE_POSTPROCESS_COMMAND_append_edison = " \
 RESIN_BOOT_PARTITION_FILES_append = " \
     u-boot-edison.bin: \
     u-boot-envs/edison-blankcdc.bin: \
+    ${KERNEL_IMAGETYPE}${KERNEL_INITRAMFS}-${MACHINE}.bin:/vmlinuz \
 "
 
 define_labels() {
