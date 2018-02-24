@@ -1,6 +1,7 @@
 Change log
 -----------
 
+* Zero-out the entire u-boot environment partition in case we need to re-write it [Florin]
 * Copy various files to the edison's boot partition [Florin]
 * Deploy the kernel in /resin-boot so we also update the kernel when doing hostapps update [Florin]
 
