@@ -1,6 +1,8 @@
 Change log
 -----------
 
+* Zero-out the entire u-boot environment partition in case we need to re-write it [Florin]
+
 # v2.9.7+rev1
 ## (2018-02-02)
 

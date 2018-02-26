@@ -11,18 +11,25 @@ uboot_file="u-boot-edison.bin"
 uboot_block_size=512
 uboot_seek_blocks=2048
 
-uboot_env_file="u-boot-envs/edison-blankcdc.bin"
-uboot_env_block_size=512
-uboot_env_seek_blocks=6144
+uboot_env0_file="u-boot-envs/edison-blankcdc.bin"
+uboot_env0_block_size=512
+uboot_env0_seek_blocks=6144
+uboot_env0_clear_blocks_count=2048
+
+uboot_env1_file="u-boot-envs/edison-blankcdc.bin"
+uboot_env1_block_size=512
+uboot_env1_seek_blocks=12288
+uboot_env1_clear_blocks_count=2048
 
 device="/dev/mmcblk0"
 
-update_files="uboot uboot_env"
+update_files="uboot uboot_env0 uboot_env1"
 
 for i in $update_files; do
 	current_update_file=$(eval echo \$${i}_file)
 	block_size=$(eval echo \$${i}_block_size)
 	seek_blocks=$(eval echo \$${i}_seek_blocks)
+	clear_blocks_count=$(eval echo \$${i}_clear_blocks_count)
 
 	# calculate size and md5sum of the binary to update from the update bundle
 	update_size=$(ls -al /resin-boot/$current_update_file | awk '{print $5}')
@@ -32,10 +39,12 @@ for i in $update_files; do
 	let skip_bytes=$block_size*$seek_blocks
 
 	# calculate md5sum of the data already written to $device, using $update_size bytes and skipping $skip_bytes from $device
-	existing_md5sum=$(dd if=$device of=/tmp/update_temp skip=$skip_bytes bs=1 count=$update_size &>/dev/null && md5sum /tmp/update_temp | awk '{print $1}')
-	rm -rf /tmp/update_temp
+	existing_md5sum=$(dd if=$device skip=$skip_bytes bs=1 count=$update_size status=none | md5sum | awk '{print $1}')
 
 	if [ ! "$existing_md5sum" = "$update_md5sum" ]; then
+		if [ -n "$clear_blocks_count" ]; then
+			dd if=/dev/zero of=$device conv=fdatasync seek=$seek_blocks bs=$block_size count=$clear_blocks_count
+		fi
 		echo "Flashing $current_update_file to $device"
 		dd if=/resin-boot/$current_update_file of=$device conv=fdatasync seek=$seek_blocks bs=$block_size
 	fi
