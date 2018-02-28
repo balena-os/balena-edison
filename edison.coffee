@@ -62,7 +62,7 @@ module.exports =
 		machine: 'edison'
 		image: 'resin-image'
 		fstype: 'zip'
-		version: 'yocto-pyro'
+		version: 'yocto-rocko'
 		deployArtifact: 'resin-edison'
 		archive: true
 		compressed: true
