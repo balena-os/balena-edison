@@ -1,6 +1,7 @@
 Change log
 -----------
 
+* Update the meta-resin submodule to version v2.15.1 [Florin]
 * Make sure resin-data.img is deployed [Florin]
 * Disable UPX compression for os-config [Florin]
 * Switch to Poky version sumo-19.0.0 [Florin]
