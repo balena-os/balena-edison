@@ -1,6 +1,12 @@
 Change log
 -----------
 
+# v2.15.1+rev1
+## (2018-08-31)
+
+* Update the meta-resin submodule to version v2.15.1 [Florin Sarbu]
+* Add versionist support [Giovanni Garufi]
+
 * Update the meta-resin submodule to version v2.15.1 [Florin]
 * Make sure resin-data.img is deployed [Florin]
 * Disable UPX compression for os-config [Florin]
