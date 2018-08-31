@@ -9,6 +9,9 @@ do_bootimg[depends] += "virtual/kernel:do_deploy"
 do_bootimg[depends] += "networkmanager:do_deploy"
 do_bootimg[depends] += "resin-image:do_rootfs"
 
+# We need to ensure docker-disk has deployed resin-data.img by the time we need it
+do_image_complete[depends] += "docker-disk:do_deploy"
+
 # Do not use legacy nor EFI BIOS
 PCBIOS_edison = "0"
 

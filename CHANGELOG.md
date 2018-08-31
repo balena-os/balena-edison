@@ -1,6 +1,12 @@
 Change log
 -----------
 
+* Update the meta-resin submodule to version v2.15.1 [Florin]
+* Make sure resin-data.img is deployed [Florin]
+* Disable UPX compression for os-config [Florin]
+* Switch to Poky version sumo-19.0.0 [Florin]
+* Update the resin-yocto-scripts submodule to 8312741e13604a9d166370349061876afb22c0fa (on master branch) [Florin]
+
 # v2.14.0+rev1
 ## (2018-07-18)
 
