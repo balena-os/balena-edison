@@ -1,6 +1,12 @@
 Change log
 -----------
 
+# v2.27.0+rev2
+## (2018-12-11)
+
+* Update fstab /factory part. params [Vicentiu Galanopulo]
+* Switch from resin-yocto-scripts to balena-yocto-scripts [Vicentiu Galanopulo]
+
 # v2.27.0+rev1
 ## (2018-11-26)
 

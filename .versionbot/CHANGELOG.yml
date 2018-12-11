@@ -1,4 +1,25 @@
 - commits:
+    - subject: Update fstab /factory part. params
+      hash: e322975446301c40efc0a591e3c710e1b22f0a11
+      body: ''
+      footer:
+        Changelog-entry: Update fstab /factory part. params
+        changelog-entry: Update fstab /factory part. params
+        Signed-off-by: Vicentiu Galanopulo <vicentiu@resin.io>
+        signed-off-by: Vicentiu Galanopulo <vicentiu@resin.io>
+      author: Vicentiu Galanopulo
+    - subject: Switch from resin-yocto-scripts to balena-yocto-scripts
+      hash: f28788313e60cf79ae9bfce80ad642843e3e3860
+      body: ''
+      footer:
+        Changelog-entry: Switch from resin-yocto-scripts to balena-yocto-scripts
+        changelog-entry: Switch from resin-yocto-scripts to balena-yocto-scripts
+        Signed-off-by: Vicentiu Galanopulo <vicentiu@resin.io>
+        signed-off-by: Vicentiu Galanopulo <vicentiu@resin.io>
+      author: Vicentiu Galanopulo
+  version: 2.27.0+rev2
+  date: 2018-12-11T15:44:24.663Z
+- commits:
     - subject: Update the meta-resin submodule from v2.26.0 to v2.27.0
       hash: f21abf1bbcc0465ae4ba60fb4cafa0d2f5ee63c1
       body: |
