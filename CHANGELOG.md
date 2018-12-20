@@ -1,6 +1,50 @@
 Change log
 -----------
 
+# v2.29.0+rev1
+## (2018-12-20)
+
+* Update meta-resin from v2.27.0 to v2.29.0 [Sebastian Panceac]
+
+<details>
+<summary> View details </summary>
+
+## meta-resin-2.29.0
+### (2018-12-19)
+
+* OS will default apps.json to an empty json file [Andrei Gherzan]
+* Update balena-engine to include low entropy fixes [Andrei Gherzan]
+* Move an NM patch to the right place to reduce a warning [Zubair Lutfullah Kakakhel]
+* Update balena-supervisor to v9.0.1 [Pablo Carranza Velez]
+* Fix cases where RESIN_BOOT_PARTITION_FILES includes invalid entries [Andrei Gherzan]
+* Enable some common linux kernel serial device drivers [Andrei Gherzan]
+* Configure NetworkManager to only ignore our vpn interface but manage other tun devices [Andrei Gherzan]
+* networkmanager: Add pppd to FILES [Zubair Lutfullah Kakakhel]
+* networkmanager: Add balena-client-id.patch in bbappend [Zubair Lutfullah Kakakhel]
+* Bump network manager from v1.12.2 to v1.14.4 [Zubair Lutfullah Kakakhel]
+* Update balena-supervisor to v8.7.0 [Pablo Carranza Velez]
+* Fix test cases for kernel module header compilation [Zubair Lutfullah Kakakhel]
+* Add chrony v3.2 recipe in various layers to keep minimum chrony version on devices above v3.2 [Zubair Lutfullah Kakakhel]
+* chrony/pyro: Add v3.2 recipe [Zubair Lutfullah Kakakhel]
+* chrony/morty: Add v3.2 recipe [Zubair Lutfullah Kakakhel]
+* chrony/krogoth: Bump recipe version to v3.2 [Zubair Lutfullah Kakakhel]
+* Update resin-supervisor to v8.6.8 [Zubair Lutfullah Kakakhel]
+
+## meta-resin-2.28.0
+### (2018-12-05)
+
+* Update os-config to 1.0.0 [Zahari Petkov]
+* Update libqmi to version 1.20.2 [Florin Sarbu]
+* Update libmbim to version 1.16.2 [Florin Sarbu]
+* kernel-modules-headers: Add basic sanity test [Zubair Lutfullah Kakakhel]
+* Fix kernel module header generation [Zubair Lutfullah Kakakhel]
+* image-resin.bbclass: Fix config.json pretty format [Andrei Gherzan]
+* Allow supervisor update on unmanaged devices [Andrei Gherzan]
+* Update resin-supervisor to v8.6.3 [Cameron Diver]
+</details>
+
+* Update balena-yocto-scripts submodule to v1.0.1 [Sebastian Panceac]
+
 # v2.27.0+rev2
 ## (2018-12-11)
 
