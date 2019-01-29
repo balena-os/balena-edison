@@ -1,0 +1,30 @@
+From d5376d0a511f47979b554f8690aaa16124c5a724 Mon Sep 17 00:00:00 2001
+From: Alexandru Costache <alexandru@balena.io>
+Date: Tue, 29 Jan 2019 15:47:48 +0100
+Subject: [PATCH] edison: Enable CONFIG_CMD_SETEXPR
+
+This is necessary for integration with the
+BalenaOS v2.30 release
+
+Upstream-Status: Inappropriate [configuration]
+Signed-off-by: Alexandru Costache <alexandru@balena.io>
+---
+ configs/edison_defconfig | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/configs/edison_defconfig b/configs/edison_defconfig
+index 0db4a54..8a2637e 100644
+--- a/configs/edison_defconfig
++++ b/configs/edison_defconfig
+@@ -4,7 +4,7 @@ CONFIG_TARGET_EDISON=y
+ CONFIG_DEFAULT_DEVICE_TREE="edison"
+ # CONFIG_CMD_IMLS is not set
+ # CONFIG_CMD_FLASH is not set
+-# CONFIG_CMD_SETEXPR is not set
++CONFIG_CMD_SETEXPR=y
+ # CONFIG_CMD_NFS is not set
+ # CONFIG_X86_SERIAL is not set
+ CONFIG_OF_CONTROL=y
+-- 
+2.7.4
+
