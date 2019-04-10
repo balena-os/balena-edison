@@ -1,4 +1,47 @@
 - commits:
+    - subject: Update the meta-balena submodule from v2.31.5 to v2.32.0
+      hash: 997511a2cfdcf6ad07bb05da5aab639f47a53832
+      body: |
+        Update meta-balena from 2.31.5 to 2.32.0
+      footer:
+        Changelog-entry: Update the meta-balena submodule from v2.31.5 to v2.32.0
+        changelog-entry: Update the meta-balena submodule from v2.31.5 to v2.32.0
+        Signed-off-by: Florin Sarbu <florin@balena.io>
+        signed-off-by: Florin Sarbu <florin@balena.io>
+      author: Florin Sarbu
+    - subject: Update the balena-yocto-scripts submodule to v1.0.5
+      hash: 1e94e88462dc749f9be5004cc172e9335148f307
+      body: ''
+      footer:
+        Changelog-entry: Update the balena-yocto-scripts submodule to v1.0.5
+        changelog-entry: Update the balena-yocto-scripts submodule to v1.0.5
+        Signed-off-by: Florin Sarbu <florin@balena.io>
+        signed-off-by: Florin Sarbu <florin@balena.io>
+      author: Florin Sarbu
+    - subject: Change the poky submodule to our github mirror
+      hash: 86ee0adf539bbc0bb3a2594b8ff52f07990abd52
+      body: |
+        We do this change because we noticed frequent timeouts
+        in different parts of our build infrastructure when pulling
+        the poky repository from https://git.yoctoproject.org/git/poky
+      footer:
+        Changelog-entry: Change the poky submodule to our github mirror
+        changelog-entry: Change the poky submodule to our github mirror
+        Signed-off-by: Florin Sarbu <florin@balena.io>
+        signed-off-by: Florin Sarbu <florin@balena.io>
+      author: Florin Sarbu
+    - subject: Rename meta-resin to meta-balena in repository
+      hash: 318a542be2d4e8811b3f393b4769865ba83a7034
+      body: ''
+      footer:
+        Changelog-entry: Rename meta-resin to meta-balena in repository
+        changelog-entry: Rename meta-resin to meta-balena in repository
+        Signed-off-by: Florin Sarbu <florin@balena.io>
+        signed-off-by: Florin Sarbu <florin@balena.io>
+      author: Florin Sarbu
+  version: 2.32.0+rev1
+  date: 2019-04-10T08:26:24.259Z
+- commits:
     - subject: Update the meta-resin submodule from v2.31.2 to v2.31.5
       hash: ec5bbaf4598a0a081c5de1af7d6f1c7ce87ddfff
       body: |
