@@ -1,10 +1,10 @@
-# All resin supported machines
+# All balena.io supported machines
 #MACHINE ?= "edison"
 
 # Recipes that are not available in yocto-daisy
-BBMASK ?= ".*/meta-resin/meta-resin-common/recipes-core/volatile-binds/"
+BBMASK ?= ".*/meta-balena/meta-resin-common/recipes-core/volatile-binds/"
 
-# More info meta-resin/README.md
+# More info meta-balena/README.md
 #TARGET_REPOSITORY ?= ""
 #TARGET_TAG ?= ""
 
@@ -24,7 +24,7 @@ BBMASK ?= ".*/meta-resin/meta-resin-common/recipes-core/volatile-binds/"
 BB_NUMBER_THREADS ?= "${@oe.utils.cpu_count()}"
 PARALLEL_MAKE ?= "-j ${@oe.utils.cpu_count()}"
 
-# Resin specific distros
+# Balena specific distros
 DISTRO ?= "resin-systemd"
 
 # Custom downloads directory
