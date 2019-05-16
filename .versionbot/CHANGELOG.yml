@@ -1,4 +1,46 @@
 - commits:
+    - subject: Update the balena-yocto-scripts submodule to v1.0.6
+      hash: 0fc65ef30c8834a8a52a8b43a979c6d627164dbc
+      body: ''
+      footer:
+        Changelog-entry: Update the balena-yocto-scripts submodule to v1.0.6
+        changelog-entry: Update the balena-yocto-scripts submodule to v1.0.6
+        Signed-off-by: Florin Sarbu <florin@balena.io>
+        signed-off-by: Florin Sarbu <florin@balena.io>
+      author: Florin Sarbu
+    - subject: Update repo.yml to be able to trigger VersionBot with `meta-balena`
+      hash: 9ecda744bb674436ffcb10e8b4514d4a44d23564
+      body: ''
+      footer:
+        Changelog-entry: Update repo.yml to be able to trigger VersionBot with `meta-balena`
+        changelog-entry: Update repo.yml to be able to trigger VersionBot with `meta-balena`
+        Signed-off-by: Florin Sarbu <florin@balena.io>
+        signed-off-by: Florin Sarbu <florin@balena.io>
+      author: Florin Sarbu
+    - subject: Rename meta-resin to meta-balena in repository
+      hash: 6d89cc0c12296debcb0952281ccce6306b7996b8
+      body: ''
+      footer:
+        Changelog-entry: Rename meta-resin to meta-balena in repository
+        changelog-entry: Rename meta-resin to meta-balena in repository
+        Signed-off-by: Florin Sarbu <florin@balena.io>
+        signed-off-by: Florin Sarbu <florin@balena.io>
+      author: Florin Sarbu
+    - subject: Change the poky submodule to our github mirror
+      hash: bee0eab13b78dfe1f89d2ac27a98f0c4ce6a4bfc
+      body: |
+        We do this change because we noticed frequent timeouts
+        in different parts of our build infrastructure when pulling
+        the poky repository from https://git.yoctoproject.org/git/poky
+      footer:
+        Changelog-entry: Change the poky submodule to our github mirror
+        changelog-entry: Change the poky submodule to our github mirror
+        Signed-off-by: Florin Sarbu <florin@balena.io>
+        signed-off-by: Florin Sarbu <florin@balena.io>
+      author: Florin Sarbu
+  version: 2.33.0+rev2
+  date: 2019-05-16T08:04:44.510Z
+- commits:
     - subject: Update rust to 1.33
       hash: e6f69b86fc08ee20bf326a915a84582dda371501
       body: ''
