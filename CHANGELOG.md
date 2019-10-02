@@ -1,6 +1,11 @@
 Change log
 -----------
 
+# v2.43.0+rev1
+## (2019-09-30)
+
+* Update the meta-balena submodule from v2.38.3 to v2.43.0 [Vicentiu Galanopulo]
+
 # v2.38.3+rev2
 ## (2019-09-30)
 

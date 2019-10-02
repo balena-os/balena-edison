@@ -1,4 +1,16 @@
 - commits:
+    - subject: Update the meta-balena submodule from v2.38.3 to v2.43.0
+      hash: c1681e44e20f1740543ec7503848002661f1f256
+      body: ''
+      footer:
+        Changelog-entry: Update the meta-balena submodule from v2.38.3 to v2.43.0
+        changelog-entry: Update the meta-balena submodule from v2.38.3 to v2.43.0
+        Signed-off-by: Vicentiu Galanopulo <vicentiu@balena.io>
+        signed-off-by: Vicentiu Galanopulo <vicentiu@balena.io>
+      author: Vicentiu Galanopulo
+  version: 2.43.0+rev1
+  date: 2019-09-30T14:55:25.606Z
+- commits:
     - subject: Update balena-yocto-scripts to v1.3.8
       hash: c1a3dbd68a9072ce3a9bc4afbf556a4ce330e2ba
       body: ''
