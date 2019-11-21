@@ -1,6 +1,49 @@
 Change log
 -----------
 
+# v2.45.1+rev1
+## (2019-11-21)
+
+* Update balena-yocto-scripts to v1.5.2 [Florin Sarbu]
+
+<details>
+<summary> Update the meta-balena submodule from v2.43.0 to v2.45.1 [Florin Sarbu] </summary>
+
+> ## meta-balena-2.45.1
+> ### (2019-11-21)
+> 
+> * Fix for a race condition where occasionally the supervisor might not be able to come up during boot. Also can be caused by using io.balena.features.balena-socket and app container restart always policy. Affects meta-balena 2.44.0 and 2.45.0. To be fixed in 2.44.1 and 2.46.0 [Zubair Lutfullah Kakakhel]
+> * Rename resin to balena where possible [Pagan Gazzard]
+> * Add leading new line for PACKAGE_INSTALL variable [Vicentiu Galanopulo]
+> * Set `net.ipv4.ip_local_port_range` to recommended range (49152-65535) [Will Boyce]
+> * No user impact, subtle fix in rollback version checks [Zubair Lutfullah Kakakhel]
+
+> ## meta-balena-2.45.0
+> ### (2019-10-30)
+> 
+> * Increase persistent journal size to 32M [Will Boyce]
+> * Move persistent logs from state to data partition [Will Boyce]
+> * Add wpa-supplicant recipe and update to v2.9 [Will Boyce]
+> * Improve robustness by making variou services restart if they stop for some reason [Zubair Lutfullah Kakakhel]
+> * Build net/dummy as module [Alexandru Costache]
+
+> ## meta-balena-2.44.0
+> ### (2019-10-03)
+> 
+> * Make uboot dev images autoboot delay build time configurable. Default is no delay [Zubair Lutfullah Kakakhel]
+> * Reduce systemd logging level from info to notice [Zubair Lutfullah Kakakhel]
+> * resin-supervisor: Expose container ID via env variable [Roman Mazur]
+> * kernel-devsrc: Copy vdso.lds.S file in source archive if available [Sebastian Panceac]
+> * Disable PasswordAuthentication in sshd in production images as an extra precautionary measure. [Zubair Lutfullah Kakakhel]
+> * Update balena-engine to 18.9.10 [Robert Günzler]
+> * hostapp-update-hooks: Filter out automount for inactive sysroot [Alexandru Costache]
+> * Add support for hooks 2.0 enabling finer granularity during HostOS updates. [Zubair Lutfullah Kakakhel]
+> * Update balena-supervisor to v10.3.7 [Cameron Diver]
+> * Add support for balena cloud SSH public keys [Andrei Gherzan]
+> * Map any user to root using libnss-ato [Andrei Gherzan]
+> * Add option to disable kernel headers from being built. [Zubair Lutfullah Kakakhel]
+</details>
+
 # v2.45.0+rev1
 ## (2019-11-06)
 
