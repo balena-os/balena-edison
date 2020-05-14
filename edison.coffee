@@ -50,6 +50,7 @@ module.exports =
 	name: 'Intel Edison'
 	arch: 'i386'
 	state: 'released'
+	private: false
 
 	gettingStartedLink: 'http://docs.resin.io/#/pages/installing/gettingStarted-Edison.md'
 
