@@ -1,4 +1,23 @@
 - commits:
+    - subject: Patches for TCP-based remote denial of service vulnerabilities
+      hash: 5e1ace8be60db2357205ee7458b331b72f12b182
+      body: >
+        Add patches for multiple TCP-based remote denial
+
+        of service vulnerabilities identified by Netflix.
+
+        Patch source:
+
+        https://github.com/Netflix/security-bulletins/blob/master/advisories/third-party/2019-001.md
+      footer:
+        Changelog-entry: Patches for TCP-based remote denial of service vulnerabilities
+        changelog-entry: Patches for TCP-based remote denial of service vulnerabilities
+        Signed-off-by: Vicentiu Galanopulo <vicentiu@balena.io>
+        signed-off-by: Vicentiu Galanopulo <vicentiu@balena.io>
+      author: Vicentiu Galanopulo
+  version: 2.45.1+rev4
+  date: 2020-05-14T11:21:35.986Z
+- commits:
     - subject: Set private to false in .coffee files for the public device types
       hash: 5f95602472fbea5229b259706b02d860dde9137b
       body: ''
