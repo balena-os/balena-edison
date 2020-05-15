@@ -1,5 +1,13 @@
 inherit kernel-resin
 
+FILESEXTRAPATHS_prepend := "${THISDIR}/${PN}:"
+
+SRC_URI += "file://0002-NFLX-2019-001-SACK-Panic.patch \
+            file://0004-NFLX-2019-001-SACK-Slowness.patch \
+            file://0005-NFLX-2019-001-Resour-Consump-Low-MSS.patch \
+            file://0006-NFLX-2019-001-Resour-Consump-Low-MSS.patch \
+            "
+
 # enable USB hub kernel module as requested by customer
 RESIN_CONFIGS_append = " smsc95xx"
 RESIN_CONFIGS[smsc95xx] = "CONFIG_USB_NET_SMSC95XX=m"
