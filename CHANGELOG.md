@@ -1,6 +1,11 @@
 Change log
 -----------
 
+# v2.50.0+rev2
+## (2020-12-22)
+
+* README: Fix typo in ticket repository URL [Tim Clephas]
+
 # v2.50.0+rev1
 ## (2020-05-15)
 
