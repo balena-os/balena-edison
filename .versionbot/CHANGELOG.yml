@@ -1,4 +1,17 @@
 - commits:
+    - subject: 'README: Fix typo in ticket repository URL'
+      hash: 890052ae4f44fed7e233419659eea549c2675986
+      body: ''
+      footer:
+        Changelog-entry: 'README: Fix typo in ticket repository URL'
+        changelog-entry: 'README: Fix typo in ticket repository URL'
+        Signed-off-by: Tim Clephas <tim.clephas@nobleo.nl>
+        signed-off-by: Tim Clephas <tim.clephas@nobleo.nl>
+      author: Tim Clephas
+      nested: []
+  version: 2.50.0+rev2
+  date: 2020-12-22T10:20:21.945Z
+- commits:
     - subject: Update balena-yocto-scripts to v1.7.1
       hash: 3cb423f085f8376c0f75f56b113c2839e7022371
       body: ''
