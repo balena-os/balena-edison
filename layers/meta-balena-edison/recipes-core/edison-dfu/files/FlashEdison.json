@@ -189,7 +189,7 @@
     "description" : "Boot partition",
     "name" : "Boot partition",
     "type" : "file",
-    "value" : "resin-image-edison.hddimg"
+    "value" : "balena-image-edison.hddimg"
    },
    "fw_dnx_file" :    {
     "description" : "Firmware DnX",
@@ -231,7 +231,7 @@
     "description" : "Rootfs",
     "name" : "Rootfs",
     "type" : "file",
-    "value" : "resin-image-edison.hostapp-ext4"
+    "value" : "balena-image-edison.hostapp-ext4"
    },
    "rootfs_file_secondary" :   {
     "description" : "Rootfs secondary",

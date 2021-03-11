@@ -7,7 +7,7 @@ inherit image-live
 # To be removed in the future
 do_bootimg[depends] += "virtual/kernel:do_deploy"
 do_bootimg[depends] += "networkmanager:do_deploy"
-do_bootimg[depends] += "resin-image:do_rootfs"
+do_bootimg[depends] += "balena-image:do_rootfs"
 
 # We need to ensure docker-disk has deployed resin-data.img by the time we need it
 do_image_complete[depends] += "docker-disk:do_deploy"
@@ -20,7 +20,7 @@ IMAGE_FSTYPES_append_edison = " hddimg"
 
 # We currently use ext4 rootfs partitions
 # Also depend on the rootfs type declared by meta-resin
-IMAGE_TYPEDEP_hddimg = "ext4 ${RESIN_ROOT_FSTYPE}"
+IMAGE_TYPEDEP_hddimg = "ext4 ${BALENA_ROOT_FSTYPE}"
 
 # force the rootfs creation task depend on the existence of mkfs-hostapp-native in the sysroot
 do_rootfs[depends] += "mkfs-hostapp-native:do_populate_sysroot"
@@ -41,7 +41,7 @@ IMAGE_POSTPROCESS_COMMAND_append_edison = " \
     deploy_bundle; \
     "
 
-RESIN_BOOT_PARTITION_FILES_append = " \
+BALENA_BOOT_PARTITION_FILES_append = " \
     u-boot-edison.bin: \
     u-boot-envs/edison-blankcdc.bin: \
     ${KERNEL_IMAGETYPE}${KERNEL_INITRAMFS}-${MACHINE}.bin:/vmlinuz \
@@ -49,28 +49,28 @@ RESIN_BOOT_PARTITION_FILES_append = " \
 
 define_labels() {
     #Missing labels
-    e2label ${IMGDEPLOYDIR}/resin-image-edison.${RESIN_ROOT_FSTYPE} ${RESIN_ROOTA_FS_LABEL}
-    e2label ${DEPLOY_DIR_IMAGE}/resin-data.img ${RESIN_DATA_FS_LABEL}
+    e2label ${IMGDEPLOYDIR}/balena-image-edison.${BALENA_ROOT_FSTYPE} ${BALENA_ROOTA_FS_LABEL}
+    e2label ${DEPLOY_DIR_IMAGE}/resin-data.img ${BALENA_DATA_FS_LABEL}
 }
 
 deploy_bundle() {
     # Create an empty ext4 filesystem for the second rootfs partition (resin-rootB) big enough to hold the resin image rootfs
-    RESIN_ROOTB_BLOCKS=${IMAGE_ROOTFS_SIZE}
+    BALENA_ROOTB_BLOCKS=${IMAGE_ROOTFS_SIZE}
     rm -rf ${DEPLOY_DIR_IMAGE}/resin-rootB.img
-    dd if=/dev/zero of=${DEPLOY_DIR_IMAGE}/resin-rootB.img count=${RESIN_ROOTB_BLOCKS} bs=1024
-    mkfs.ext4 -F -L "${RESIN_ROOTB_FS_LABEL}" ${DEPLOY_DIR_IMAGE}/resin-rootB.img
+    dd if=/dev/zero of=${DEPLOY_DIR_IMAGE}/resin-rootB.img count=${BALENA_ROOTB_BLOCKS} bs=1024
+    mkfs.ext4 -F -L "${BALENA_ROOTB_FS_LABEL}" ${DEPLOY_DIR_IMAGE}/resin-rootB.img
 
     # Create an empty ext4 filesystem for our config partition
-    RESIN_STATE_BLOCKS=${RESIN_STATE_SIZE}
+    BALENA_STATE_BLOCKS=${BALENA_STATE_SIZE}
     rm -rf ${DEPLOY_DIR_IMAGE}/resin-state.img
-    dd if=/dev/zero of=${DEPLOY_DIR_IMAGE}/resin-state.img count=${RESIN_STATE_BLOCKS} bs=1024
-    mkfs.ext4 -F -L "${RESIN_STATE_FS_LABEL}" ${DEPLOY_DIR_IMAGE}/resin-state.img
+    dd if=/dev/zero of=${DEPLOY_DIR_IMAGE}/resin-state.img count=${BALENA_STATE_BLOCKS} bs=1024
+    mkfs.ext4 -F -L "${BALENA_STATE_FS_LABEL}" ${DEPLOY_DIR_IMAGE}/resin-state.img
 
     mkdir -p ${DEPLOY_DIR_IMAGE}/resin-edison
     cp -rL ${DEPLOY_DIR_IMAGE}/u-boot-edison.bin ${DEPLOY_DIR_IMAGE}/resin-edison/
     cp -rL ${DEPLOY_DIR_IMAGE}/u-boot-edison.img ${DEPLOY_DIR_IMAGE}/resin-edison/
     cp -rL ${DEPLOY_DIR_IMAGE}/u-boot-envs ${DEPLOY_DIR_IMAGE}/resin-edison/
-    cp -rL ${IMGDEPLOYDIR}/resin-image-edison.${RESIN_ROOT_FSTYPE} ${DEPLOY_DIR_IMAGE}/resin-edison/
+    cp -rL ${IMGDEPLOYDIR}/balena-image-edison.${BALENA_ROOT_FSTYPE} ${DEPLOY_DIR_IMAGE}/resin-edison/
     cp -rL ${DEPLOY_DIR_IMAGE}/resin-data.img ${DEPLOY_DIR_IMAGE}/resin-edison/
     cp -rL ${DEPLOY_DIR_IMAGE}/resin-rootB.img ${DEPLOY_DIR_IMAGE}/resin-edison/
     cp -rL ${DEPLOY_DIR_IMAGE}/resin-state.img ${DEPLOY_DIR_IMAGE}/resin-edison/
@@ -83,8 +83,8 @@ populate_live_append_edison() {
     install -m 0644 ../${MACHINE}.json ${HDDDIR}/device-type.json
     # copy image-version-info to the boot partition
     install -m 0644 ${IMGDEPLOYDIR}/../resin-boot/image-version-info ${HDDDIR}/
-    # copy the bootfiles resinos.fingerprint to the boot partition
-    install -m 0644 ${IMGDEPLOYDIR}/../resin-boot/resinos.fingerprint ${HDDDIR}/
+    # copy the bootfiles balenaos.fingerprint to the boot partition
+    install -m 0644 ${IMGDEPLOYDIR}/../resin-boot/balenaos.fingerprint ${HDDDIR}/
     # copy the splash directory over to the boot partition
     install -d ${HDDDIR}/splash
     install -m 0755 ${IMGDEPLOYDIR}/../resin-boot/splash/* ${HDDDIR}/splash/
@@ -93,7 +93,7 @@ populate_live_append_edison() {
     # copy example NetworkManager config file
     cp -r ${DEPLOY_DIR_IMAGE}/system-connections ${HDDDIR}
     # copy the flag file for resinHUP
-    cp ${DEPLOY_DIR_IMAGE}/${RESIN_IMAGE_FLAG_FILE} ${HDDDIR}
+    cp ${DEPLOY_DIR_IMAGE}/${BALENA_IMAGE_FLAG_FILE} ${HDDDIR}
 }
 
 # XXX
@@ -104,7 +104,7 @@ populate_live_append_edison() {
 # >= 40MB in size. The problem with generating this partition with this
 # size does not occur on other boards, as they have more accessible
 # flashing methods permitting them to ship a IMAGE_FSTYPES of type
-# "resinos-img" and not "hddimg".
+# "balenaos-img" and not "hddimg".
 build_fat_img() {
 	FATSOURCEDIR=$1
 	FATIMG=$2
@@ -118,7 +118,7 @@ build_fat_img() {
 		rm ${FATIMG}
 	fi
 
-	# value of RESIN_BOOT_SIZE from
+	# value of BALENA_BOOT_SIZE from
 	# meta-resin/meta-resin-common/classes/image_types_resin.bbclass
 	BLOCKS=40960
 	mkdosfs -F 32 -n ${BOOTIMG_VOLUME_ID} -S 512 -C ${FATIMG} \
@@ -140,7 +140,7 @@ build_hddimg_append_edison() {
     chmod 0644 ${IMGDEPLOYDIR}/${IMAGE_NAME}.hddimg
     rm -rf ${IMGDEPLOYDIR}/${IMAGE_LINK_NAME}.hddimg
     ln -s ${IMGDEPLOYDIR}/${IMAGE_NAME}.hddimg ${IMGDEPLOYDIR}/${IMAGE_LINK_NAME}.hddimg
-    cp -rL ${IMGDEPLOYDIR}/resin-image-edison.hddimg ${DEPLOY_DIR_IMAGE}/resin-edison/
+    cp -rL ${IMGDEPLOYDIR}/balena-image-edison.hddimg ${DEPLOY_DIR_IMAGE}/resin-edison/
 }
 
 # The Edison ships with its own /etc/fstab, which differs from the one
