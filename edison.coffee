@@ -61,7 +61,7 @@ module.exports =
 
 	yocto:
 		machine: 'edison'
-		image: 'resin-image'
+		image: 'balena-image'
 		fstype: 'zip'
 		version: 'yocto-warrior'
 		deployArtifact: 'resin-edison'
@@ -87,7 +87,7 @@ module.exports =
 
 	configuration:
 		config:
-			image: 'resin-image-edison.hddimg'
+			image: 'balena-image-edison.hddimg'
 			path: '/config.json'
 
 	initialization:

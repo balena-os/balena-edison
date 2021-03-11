@@ -225,7 +225,7 @@ else
 	dfu-wait no-prompt
 
 	echo "Flashing boot partition (kernel)"
-	flash-command --alt resin-boot -D "${ESC_BASE_DIR}/resin-image-edison.hddimg"
+	flash-command --alt resin-boot -D "${ESC_BASE_DIR}/balena-image-edison.hddimg"
 
 	echo "Flashing state partition"
 	flash-command --alt resin-state -D "${ESC_BASE_DIR}/resin-state.img"
@@ -234,7 +234,7 @@ else
 	flash-command --alt resin-data -D "${ESC_BASE_DIR}/resin-data.img"
 
 	echo "Flashing rootfs (resin-rootA), (it can take up to 5 minutes... Please be patient)"
-	flash-command --alt resin-rootA -D "${ESC_BASE_DIR}/resin-image-edison.hostapp-ext4"
+	flash-command --alt resin-rootA -D "${ESC_BASE_DIR}/balena-image-edison.hostapp-ext4"
 
 	echo "Flashing secondary rootfs partition (resin-rootB), (it can take up to 5 minutes... Please be patient)"
 	flash-command --alt resin-rootB -D "${ESC_BASE_DIR}/resin-rootB.img" -R

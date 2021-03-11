@@ -136,7 +136,7 @@ if %errorlevel% neq 0 ( exit /b %errorlevel%)
 
 
 echo Flashing boot partition ^(kernel^)
-call:flash-command --alt resin-boot -D "%BASE_DIR%resin-image-edison.hddimg"
+call:flash-command --alt resin-boot -D "%BASE_DIR%balena-image-edison.hddimg"
 if %errorlevel% neq 0 ( exit /b %errorlevel%)
 
 echo "Flashing state partition"
@@ -148,7 +148,7 @@ call:flash-command --alt resin-data -D "%BASE_DIR%resin-data.img"
 if %errorlevel% neq 0 ( exit /b %errorlevel%)
 
 echo Flashing rootfs (resin-rootA), ^(it can take up to 5 minutes... Please be patient^)
-call:flash-command --alt resin-rootA -D "%BASE_DIR%resin-image-edison.hostapp-ext4"
+call:flash-command --alt resin-rootA -D "%BASE_DIR%balena-image-edison.hostapp-ext4"
 if %errorlevel% neq 0 ( exit /b %errorlevel% )
 echo Flashing secondary rootfs partition (resin-rootB), ^(it can take up to 5 minutes... Please be patient^)
 call:flash-command --alt resin-rootB -D "%BASE_DIR%resin-rootB.img" -R
