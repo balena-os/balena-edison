@@ -1,4 +1,18 @@
 - commits:
+    - subject: disable user namespacing for Edison
+      hash: b3fb8515027817008ee66cc8b09207c5eb41ef21
+      body: |
+        Disable user namespacing for Intel Edison to match upstream behavior.
+      footer:
+        Changelog-entry: disable user namespacing for Edison
+        changelog-entry: disable user namespacing for Edison
+        Signed-off-by: Joseph Kogut <joseph@balena.io>
+        signed-off-by: Joseph Kogut <joseph@balena.io>
+      author: Joseph Kogut
+      nested: []
+  version: 2.79.7+rev3
+  date: 2021-09-23T00:25:00.753Z
+- commits:
     - subject: Add balena-yocto-scripts upstream source
       hash: 10c9960b8f62d68510b3f4c92b71702b89b55aac
       body: >

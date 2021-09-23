@@ -1,6 +1,11 @@
 Change log
 -----------
 
+# v2.79.7+rev3
+## (2021-09-23)
+
+* disable user namespacing for Edison [Joseph Kogut]
+
 # v2.79.7+rev2
 ## (2021-09-07)
 
