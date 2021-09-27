@@ -2,7 +2,7 @@
 #MACHINE ?= "edison"
 
 # Recipes that are not available in yocto-daisy
-BBMASK ?= ".*/meta-balena/meta-resin-common/recipes-core/volatile-binds/"
+BBMASK ?= ".*/meta-balena/meta-balena-common/recipes-core/volatile-binds/"
 
 # More info meta-balena/README.md
 #TARGET_REPOSITORY ?= ""

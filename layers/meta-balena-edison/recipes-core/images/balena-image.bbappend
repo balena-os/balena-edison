@@ -119,7 +119,7 @@ build_fat_img() {
 	fi
 
 	# value of BALENA_BOOT_SIZE from
-	# meta-resin/meta-resin-common/classes/image_types_resin.bbclass
+	# meta-resin/meta-resin-common/classes/image_types_balena.bbclass
 	BLOCKS=40960
 	mkdosfs -F 32 -n ${BOOTIMG_VOLUME_ID} -S 512 -C ${FATIMG} \
 		${BLOCKS}
@@ -149,3 +149,5 @@ build_hddimg_append_edison() {
 read_only_rootfs_hook_append () {
     sed -i -e '/^[#[:space:]]*rootfs/{s/nodev/ro,nodev/;s/\([[:space:]]*[[:digit:]]\)\([[:space:]]*\)[[:digit:]]$/\1\20/}' ${IMAGE_ROOTFS}/etc/fstab
 }
+
+deltask do_image_size_check
