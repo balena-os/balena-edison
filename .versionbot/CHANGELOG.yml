@@ -1,4 +1,29 @@
 - commits:
+    - subject: Update contracts to 6ffb1c8d87c8d0940405cbbc954aa625b4b1f94a
+      hash: 9a41c9c1355c9cd4fd0858b7a7ae21a5d1fdcdfa
+      body: Update contracts
+      footer:
+        Changelog-entry: Update contracts to 6ffb1c8d87c8d0940405cbbc954aa625b4b1f94a
+        changelog-entry: Update contracts to 6ffb1c8d87c8d0940405cbbc954aa625b4b1f94a
+      author: Renovate Bot
+      nested:
+        - commits:
+            - subject: "jetson-xavier-agx: Update L4T in base images"
+              hash: 029d39073ebc6136c5797526fbcdfe1525f5d950
+              body: ""
+              footer:
+                Change-type: patch
+                change-type: patch
+                Signed-off-by: Alexandru Costache <alexandru@balena.io>
+                signed-off-by: Alexandru Costache <alexandru@balena.io>
+              author: Alexandru Costache
+          version: contracts-1.13.75
+          title: "'jetson-xavier-agx: Update L4T in base images'"
+          date: 2022-05-21T10:51:21.212Z
+  version: 2.98.28+rev2
+  title: "'Update contracts digest to 6ffb1c8'"
+  date: 2022-05-23T16:14:40.631Z
+- commits:
     - subject: Update balena-yocto-scripts to ae2cc2c2a69beec1c39333dd08624e4fec02c6e4
       hash: 513574bf774f547cea723c9a5cbe0a4a772c9e15
       body: Update balena-yocto-scripts
