@@ -1,4 +1,87 @@
 - commits:
+    - subject: Update layers/meta-balena to 7ae427858052ddad086a32a7458e301103d02013
+      hash: fa2e9e2c65061e8ae4777a5ab9221ebdb4d3e767
+      body: Update layers/meta-balena
+      footer:
+        Changelog-entry: Update layers/meta-balena to 7ae427858052ddad086a32a7458e301103d02013
+        changelog-entry: Update layers/meta-balena to 7ae427858052ddad086a32a7458e301103d02013
+      author: Renovate Bot
+      nested:
+        - commits:
+            - subject: "tests: os: config-json: fix race by waiting for InvocationID change"
+              hash: a8303039013b6252680eb48a139e46a358506949
+              body: >
+                When tests execute quicker, a race condition can occur where
+                config.json
+
+                is edited to remove the dnsServers property, but /run/dnsmasq.servers is
+
+                not changed yet. This causes the test to fail, as the file is not empty.
+
+                    not ok 1 - We should have an empty /run/dnsmasq.servers file.
+                      ---
+                      found: |-
+                	server=1.1.1.1
+                	server=1.1.1.1
+                      pattern: !re /^\s?$/
+                      diff: |
+                	--- expected
+                	+++ actual
+                	-/^\s?$/
+                	+"server=1.1.1.1\nserver=1.1.1.1"
+
+                Fix this by waiting until the InvocationID of dnsmasq.service changes.
+              footer:
+                Change-type: patch
+                change-type: patch
+                Signed-off-by: Joseph Kogut <joseph@balena.io>
+                signed-off-by: Joseph Kogut <joseph@balena.io>
+              author: Joseph Kogut
+              nested: []
+            - subject: "tests: os: reformat config-json tests"
+              hash: 440b799974eaf237664db1813d1ebc0bff3a46b9
+              body: >
+                Reformat config-json tests w/ await where variables aren't
+                passed to
+
+                chained promises.
+              footer:
+                Change-type: patch
+                change-type: patch
+                Signed-off-by: Joseph Kogut <joseph@balena.io>
+                signed-off-by: Joseph Kogut <joseph@balena.io>
+              author: Joseph Kogut
+              nested: []
+          version: meta-balena-2.98.31
+          title: "'Fix config json race'"
+          date: 2022-05-26T17:59:23.238Z
+        - commits:
+            - subject: Remove localMode setting from standalone image configuration
+              hash: 26aa3caf4e4d649d323e57c21f818ca83a9b9b13
+              body: >
+                The `localMode` variable in `config.json` is not longer used and
+                it can
+
+                be removed
+
+
+                Fixes #2041
+              footer:
+                Change-type: patch
+                change-type: patch
+                Changelog-entry: Remove localMode setting from standalone image configuration
+                changelog-entry: Remove localMode setting from standalone image configuration
+                Signed-off-by: Alex Gonzalez <alexg@balena.io>
+                signed-off-by: Alex Gonzalez <alexg@balena.io>
+              author: Alex Gonzalez
+              nested: []
+          version: meta-balena-2.98.30
+          title: "'image-balena: Remove localMode from standalone image configuration'"
+          date: 2022-05-24T10:09:17.695Z
+  version: 2.98.31
+  title: "'Update layers/meta-balena digest to 7ae4278'"
+  date: 2022-05-26T20:04:14.556Z
+- commits:
     - subject: Update balena-yocto-scripts to 7b2a89987f196ec4261d240a88c1790c55b366b0
       hash: ec65bce4c445169f4a509db3e034cad43756f149
       body: Update balena-yocto-scripts
