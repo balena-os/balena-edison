@@ -1,4 +1,34 @@
 - commits:
+    - subject: Update layers/meta-balena to 17a4e839adefeedbe603b9b007800656588c6d77
+      hash: 995db5b637787ac2df2cb503066631708f5a0ad7
+      body: Update layers/meta-balena
+      footer:
+        Changelog-entry: Update layers/meta-balena to 17a4e839adefeedbe603b9b007800656588c6d77
+        changelog-entry: Update layers/meta-balena to 17a4e839adefeedbe603b9b007800656588c6d77
+      author: Renovate Bot
+      nested:
+        - commits:
+            - subject: "os: waitForServiceState: fix missing rejectionFail"
+              hash: 6bd43901e2d460c4e3df2a83734213ab62523689
+              body: >
+                utils.waitUntil expects rejectionFail before _times and _delay,
+                include
+
+                this argument to ensure the later arguments have the intended effect
+              footer:
+                Change-type: patch
+                change-type: patch
+                Signed-off-by: Joseph Kogut <joseph@balena.io>
+                signed-off-by: Joseph Kogut <joseph@balena.io>
+              author: Joseph Kogut
+              nested: []
+          version: meta-balena-2.98.36
+          title: "'os: waitForServiceState: fix missing rejectionFail'"
+          date: 2022-06-03T13:24:28.082Z
+  version: 2.98.36
+  title: "'Update layers/meta-balena digest to 17a4e83'"
+  date: 2022-06-03T14:56:48.136Z
+- commits:
     - subject: Update layers/meta-balena to ff147b2a19933df0c16fb37cb7bb294e77caa985
       hash: 3315c260e02a6f71f095c768e116c7c6be26b0ea
       body: Update layers/meta-balena
