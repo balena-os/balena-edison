@@ -1,4 +1,47 @@
 - commits:
+    - subject: Update layers/meta-balena to 904cf6fe2654cc58f831e8ff9b553470916d3874
+      hash: 9cea0459a55726d82187aa0b31f4162d1ec92434
+      body: Update layers/meta-balena
+      footer:
+        Changelog-entry: Update layers/meta-balena to 904cf6fe2654cc58f831e8ff9b553470916d3874
+        changelog-entry: Update layers/meta-balena to 904cf6fe2654cc58f831e8ff9b553470916d3874
+      author: renovate[bot]
+      nested:
+        - commits:
+            - subject: "tests: cloud: fix production mode ssh test"
+              hash: 916d400456ef2cb58f13c7b8b6e542c23b57e8c2
+              body: >
+                This test was broken previously, and would fail with "All
+                configured
+
+                authentication methods failed" after a long delay caused by excessive
+
+                retries.
+
+
+                Fixes: #2719
+              footer:
+                Change-type: patch
+                change-type: patch
+                Signed-off-by: Joseph Kogut <joseph@balena.io>
+                signed-off-by: Joseph Kogut <joseph@balena.io>
+              author: Joseph Kogut
+              nested: []
+          version: meta-balena-2.100.1
+          title: "'tests: cloud: fix production mode ssh test'"
+          date: 2022-07-15T00:06:09.193Z
+    - subject: Update balena-yocto-scripts to 5e003d52ac8e118af3cce662362d45f780ade704
+      hash: 7ce00ea2c26a1a5aa683fe23824eb8421ec39cb1
+      body: Update balena-yocto-scripts
+      footer:
+        Changelog-entry: Update balena-yocto-scripts to 5e003d52ac8e118af3cce662362d45f780ade704
+        changelog-entry: Update balena-yocto-scripts to 5e003d52ac8e118af3cce662362d45f780ade704
+      author: renovate[bot]
+      nested: []
+  version: 2.100.1
+  title: "'Update layers/meta-balena digest to 904cf6f'"
+  date: 2022-07-15T19:08:07.423Z
+- commits:
     - subject: Update contracts to e6f7ecd2977facdc5ee141b4bb7dc2719001df45
       hash: a2e6916b41253d81f23109b90d09413dcd3df190
       body: Update contracts
