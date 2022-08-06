@@ -1,4 +1,56 @@
 - commits:
+    - subject: Update layers/meta-balena to afcbee0c5dad04f02ba2a3ecb5d6d7db21f7ebe4
+      hash: a7bea19c665bfb8c4218c5664e0dfea99708ff10
+      body: Update layers/meta-balena
+      footer:
+        Changelog-entry: Update layers/meta-balena to afcbee0c5dad04f02ba2a3ecb5d6d7db21f7ebe4
+        changelog-entry: Update layers/meta-balena to afcbee0c5dad04f02ba2a3ecb5d6d7db21f7ebe4
+      author: renovate[bot]
+      nested:
+        - commits:
+            - subject: Update balena-io/balena-supervisor to v14.0.13
+              hash: 86f7f397f711093dcf71a86c349f3adc29bd17ac
+              body: Update balena-io/balena-supervisor
+              footer:
+                Change-type: patch
+                change-type: patch
+              author: renovate[bot]
+              nested: []
+          version: meta-balena-2.101.3
+          title: "'Update balena-io/balena-supervisor to v14.0.13'"
+          date: 2022-08-05T17:03:57.877Z
+    - subject: Update layers/meta-balena to 3c505918b2cbf72f607a3ccc65cc3853fd3a636e
+      hash: 3fa9cf794d153ce23022579f2c41b23cff042cc1
+      body: Update layers/meta-balena
+      footer:
+        Changelog-entry: Update layers/meta-balena to 3c505918b2cbf72f607a3ccc65cc3853fd3a636e
+        changelog-entry: Update layers/meta-balena to 3c505918b2cbf72f607a3ccc65cc3853fd3a636e
+      author: renovate[bot]
+      nested:
+        - commits:
+            - subject: Update balena-io/balena-supervisor to v14.0.13
+              hash: 86f7f397f711093dcf71a86c349f3adc29bd17ac
+              body: Update balena-io/balena-supervisor
+              footer:
+                Change-type: patch
+                change-type: patch
+              author: renovate[bot]
+              nested: []
+          version: meta-balena-2.101.3
+          title: "'Update balena-io/balena-supervisor to v14.0.13'"
+          date: 2022-08-05T17:03:57.877Z
+    - subject: Update contracts to 3d133659481f38ee1bba63d3835a231c70c11eec
+      hash: af1ab6a57fffd61d8433c4c24e5c43aae204b8bc
+      body: Update contracts
+      footer:
+        Changelog-entry: Update contracts to 3d133659481f38ee1bba63d3835a231c70c11eec
+        changelog-entry: Update contracts to 3d133659481f38ee1bba63d3835a231c70c11eec
+      author: renovate[bot]
+      nested: []
+  version: 2.101.3
+  title: "'Update layers/meta-balena digest to afcbee0'"
+  date: 2022-08-06T10:10:53.461Z
+- commits:
     - subject: Update layers/meta-balena to 7a62296718a363abd393107933f30e611ec27d1e
       hash: 0b29ee15b53ad0c1abb850d3049b9d0d085ba62d
       body: Update layers/meta-balena
