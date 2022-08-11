@@ -1,4 +1,45 @@
 - commits:
+    - subject: Update balena-yocto-scripts to 99807501efffc8c5034c88361049650a02511a78
+      hash: 59b5c9cd9870b1002e77e06706d2bef54764549f
+      body: Update balena-yocto-scripts
+      footer:
+        Changelog-entry: Update balena-yocto-scripts to 99807501efffc8c5034c88361049650a02511a78
+        changelog-entry: Update balena-yocto-scripts to 99807501efffc8c5034c88361049650a02511a78
+      author: renovate[bot]
+      nested:
+        - commits:
+            - subject: "barys: Add balena-rust to syntax conversion step"
+              hash: 2fb2b25a2bc6c226f3d4d570a2bfb261585ed283
+              body: >
+                Recent versions of meta-balena include a balena-rust layer used
+                to
+
+                specify a distro-set Rust version across all supported Yocto versions
+
+
+                As such, the syntax of this layer also needs to be converted.
+              footer:
+                Change-type: patch
+                change-type: patch
+                Signed-off-by: Alex Gonzalez <alexg@balena.io>
+                signed-off-by: Alex Gonzalez <alexg@balena.io>
+              author: Alex Gonzalez
+              nested: []
+          version: balena-yocto-scripts-1.19.12
+          title: "'barys: Add balena-rust to syntax conversion step'"
+          date: 2022-08-08T15:25:50.686Z
+    - subject: Update contracts to 91807ae538dccedb69877eed28ae6752287e2f21
+      hash: 91b0bd3fab4f183fefc383b114073c555ec3df23
+      body: Update contracts
+      footer:
+        Changelog-entry: Update contracts to 91807ae538dccedb69877eed28ae6752287e2f21
+        changelog-entry: Update contracts to 91807ae538dccedb69877eed28ae6752287e2f21
+      author: renovate[bot]
+      nested: []
+  version: 2.101.3+rev1
+  title: "'Update balena-yocto-scripts digest to 9980750'"
+  date: 2022-08-11T11:46:00.013Z
+- commits:
     - subject: Update layers/meta-balena to afcbee0c5dad04f02ba2a3ecb5d6d7db21f7ebe4
       hash: a7bea19c665bfb8c4218c5664e0dfea99708ff10
       body: Update layers/meta-balena
