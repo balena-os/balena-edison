@@ -1,6 +1,12 @@
 Change log
 -----------
 
+# v2.101.6
+## (2022-08-17)
+
+* Modify layer ordering [Alex Gonzalez]
+* Update layers/meta-balena to 7dfa6d2abc3795d47a8a6cdb30bc540ee110e7ee [renovate[bot]]
+
 # v2.101.5
 ## (2022-08-15)
 
