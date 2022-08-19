@@ -1,4 +1,46 @@
 - commits:
+    - subject: Update contracts to 39a79c43f1b8ab4426d7a9c1cdeb9a9514101061
+      hash: 0d932ebc4735bde674e82cc2b9781e05b41ebd69
+      body: Update contracts
+      footer:
+        Changelog-entry: Update contracts to 39a79c43f1b8ab4426d7a9c1cdeb9a9514101061
+        changelog-entry: Update contracts to 39a79c43f1b8ab4426d7a9c1cdeb9a9514101061
+      author: renovate[bot]
+      nested:
+        - commits:
+            - subject: Add golang v1.19 and v1.18.5
+              hash: 8894fddc2adcac1fb33ed221af5e31133b743f4c
+              body: ""
+              footer:
+                Change-type: patch
+                change-type: patch
+                Signed-off-by: Trong Nghia Nguyen <nghiant2710@gmail.com>
+                signed-off-by: Trong Nghia Nguyen <nghiant2710@gmail.com>
+              author: Trong Nghia Nguyen
+            - subject: Add node v16.17.0
+              hash: 37bcbeb9968c3f92a12b303523cccb15ee3b315a
+              body: ""
+              footer:
+                Change-type: patch
+                change-type: patch
+                Signed-off-by: Trong Nghia Nguyen <nghiant2710@gmail.com>
+                signed-off-by: Trong Nghia Nguyen <nghiant2710@gmail.com>
+              author: Trong Nghia Nguyen
+          version: contracts-2.0.12
+          title: "'Few base images updates'"
+          date: 2022-08-19T06:01:15.871Z
+    - subject: Update layers/meta-balena to 61b53fbb8b667de54707cc6aa94fd79674958856
+      hash: 87a03cb659a47a2a97a81ef149406a92b5098a88
+      body: Update layers/meta-balena
+      footer:
+        Changelog-entry: Update layers/meta-balena to 61b53fbb8b667de54707cc6aa94fd79674958856
+        changelog-entry: Update layers/meta-balena to 61b53fbb8b667de54707cc6aa94fd79674958856
+      author: renovate[bot]
+      nested: []
+  version: 2.101.7
+  title: "'Update contracts digest to 39a79c4'"
+  date: 2022-08-19T09:22:48.800Z
+- commits:
     - subject: Modify layer ordering
       hash: 6a90cffa9a6c6015f9ccccdfbe1818911b6afc7a
       body: |
