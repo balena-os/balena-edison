@@ -1,6 +1,35 @@
 Change log
 -----------
 
+# v2.101.9
+## (2022-08-23)
+
+
+<details>
+<summary> Update layers/meta-balena to f2de8e3d438671ac740bfa2119ab881afc5d2101 [renovate[bot]] </summary>
+
+> ## meta-balena-2.101.9
+> ### (2022-08-23)
+> 
+> 
+> <details>
+> <summary> Update tests/leviathan digest to f7533c1 [renovate[bot]] </summary>
+> 
+>> ### leviathan-2.7.3
+>> #### (2022-08-16)
+>> 
+>> * compose: qemu: enable loopback and metadata devices [Joseph Kogut]
+>> 
+> </details>
+> 
+> 
+> ## meta-balena-2.101.8
+> ### (2022-08-23)
+> 
+> * Update balena-io/balena-supervisor to v14.0.14 [renovate[bot]]
+> 
+</details>
+
 # v2.101.7
 ## (2022-08-19)
 
