@@ -1,6 +1,31 @@
 Change log
 -----------
 
+# v2.103.2
+## (2022-09-15)
+
+
+<details>
+<summary> Update layers/meta-balena to 81b94e873538faf4684977bafc501d3565288751 [renovate[bot]] </summary>
+
+> ## meta-balena-2.103.2
+> ### (2022-09-14)
+> 
+> * mobynit: allow compile task to use network [Joseph Kogut]
+> 
+</details>
+
+
+<details>
+<summary> Update layers/meta-balena to 2f207a3dbc3f142d4d1e0b9fdbd6136bcfb40dac [renovate[bot]] </summary>
+
+> ## meta-balena-2.103.2
+> ### (2022-09-14)
+> 
+> * mobynit: allow compile task to use network [Joseph Kogut]
+> 
+</details>
+
 # v2.103.0
 ## (2022-09-12)
 
