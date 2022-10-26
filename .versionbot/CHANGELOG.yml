@@ -1,4 +1,40 @@
 - commits:
+    - subject: Update layers/meta-balena to ad75f015f985b1dff097568475d80c05924bfdae
+      hash: fd95a5593f3347e808e3e76479badf46830e7d80
+      body: Update layers/meta-balena
+      footer:
+        Changelog-entry: Update layers/meta-balena to ad75f015f985b1dff097568475d80c05924bfdae
+        changelog-entry: Update layers/meta-balena to ad75f015f985b1dff097568475d80c05924bfdae
+      author: renovate[bot]
+      nested:
+        - commits:
+            - subject: Update tests/leviathan digest to f83df7d
+              hash: fb3a49ca995fb2553f1b635cdf06559a239f92ed
+              body: Update tests/leviathan
+              footer:
+                Change-type: patch
+                change-type: patch
+              author: renovate[bot]
+              nested:
+                - commits:
+                    - subject: "minor: Add @balena/leviathan-test-helpers package"
+                      hash: 47f061bef9a6bc73782599ad8ab0add43d10883b
+                      body: ""
+                      footer:
+                        Signed-off-by: Vipul Gupta (@vipulgupta2048) <vipul@balena.io>
+                        signed-off-by: Vipul Gupta (@vipulgupta2048) <vipul@balena.io>
+                      author: Vipul Gupta (@vipulgupta2048)
+                      nested: []
+                  version: leviathan-2.10.0
+                  title: ""
+                  date: 2022-10-25T13:23:40.230Z
+          version: meta-balena-2.105.18
+          title: ""
+          date: 2022-10-25T16:35:47.720Z
+  version: 2.105.18
+  title: ""
+  date: 2022-10-26T00:27:48.979Z
+- commits:
     - subject: Update contracts to c311e6f8a9832587b3bb687b22a92574b790c688
       hash: d32be204f61de2f062a078dade34562447d40674
       body: Update contracts
