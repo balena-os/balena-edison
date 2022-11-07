@@ -1,4 +1,38 @@
 - commits:
+    - subject: Update contracts to 29ecc3f3077027524ea9540cbaa81a12b265d42c
+      hash: 79aa741d00c002b20ab9113e528723ba7c95587a
+      body: Update contracts
+      footer:
+        Changelog-entry: Update contracts to 29ecc3f3077027524ea9540cbaa81a12b265d42c
+        changelog-entry: Update contracts to 29ecc3f3077027524ea9540cbaa81a12b265d42c
+      author: renovate[bot]
+      nested:
+        - commits:
+            - subject: Add go v1.19.3 and v1.18.8
+              hash: 7c66a3e29c17db2ac969d4f26b35eba4284aca8d
+              body: ""
+              footer:
+                Change-type: patch
+                change-type: patch
+                Signed-off-by: Trong Nghia Nguyen <nghiant2710@gmail.com>
+                signed-off-by: Trong Nghia Nguyen <nghiant2710@gmail.com>
+              author: Trong Nghia Nguyen
+            - subject: Add node v19.0.1 v16.18.1 and v14.21.1
+              hash: 731e93e6d60858850265f0619aa30ca35c897585
+              body: ""
+              footer:
+                Change-type: patch
+                change-type: patch
+                Signed-off-by: Trong Nghia Nguyen <nghiant2710@gmail.com>
+                signed-off-by: Trong Nghia Nguyen <nghiant2710@gmail.com>
+              author: Trong Nghia Nguyen
+          version: contracts-2.0.27
+          title: ""
+          date: 2022-11-07T11:10:43.480Z
+  version: 2.105.18+rev4
+  title: ""
+  date: 2022-11-07T12:29:13.536Z
+- commits:
     - subject: Update contracts to edff7336f8c7fd074aed1fd087a595ee2ca05651
       hash: 86c2f5b889bd49e5868a8df96c9e22ea5508624f
       body: Update contracts
