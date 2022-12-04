@@ -1,4 +1,53 @@
 - commits:
+    - subject: Update layers/meta-balena to 1ca7d4bad4a759051bb8f30a284ed24070260790
+      hash: 1e930e9f309ba91b50624ccf31d0279513c071bc
+      body: Update layers/meta-balena
+      footer:
+        Changelog-entry: Update layers/meta-balena to 1ca7d4bad4a759051bb8f30a284ed24070260790
+        changelog-entry: Update layers/meta-balena to 1ca7d4bad4a759051bb8f30a284ed24070260790
+      author: renovate[bot]
+      nested:
+        - commits:
+            - subject: Update tests/leviathan digest to fe4d6a1
+              hash: 1d95e19ed302bc281db4dc86b0394f7ce8ef74f3
+              body: Update tests/leviathan
+              footer:
+                Change-type: patch
+                change-type: patch
+              author: renovate[bot]
+              nested:
+                - commits:
+                    - subject: 'Revert "docker-compose: stop using the default docker bridge"'
+                      hash: 957acc6a86c610835a9567fca172a812ff1d54bd
+                      body: >
+                        This reverts commit eb69ff445fe0cac4f2060e67fa6994e61c3ca4b9.
+
+
+                        Hardcoding the bridge address like this results in conflicts
+
+                        when multiple instances are running on one jenkins node.
+
+
+                        A new solution for local workstation testing will have to be
+
+                        considered.
+                      footer:
+                        Change-type: patch
+                        change-type: patch
+                        Signed-off-by: Kyle Harding <kyle@balena.io>
+                        signed-off-by: Kyle Harding <kyle@balena.io>
+                      author: Kyle Harding
+                      nested: []
+                  version: leviathan-2.10.9
+                  title: ""
+                  date: 2022-12-02T20:15:29.352Z
+          version: meta-balena-2.107.18
+          title: ""
+          date: 2022-12-04T18:41:52.812Z
+  version: 2.107.18
+  title: ""
+  date: 2022-12-04T21:46:42.744Z
+- commits:
     - subject: Update layers/meta-balena to 3da13b6ca6f9c2ae43ede8391f3e48891ca70528
       hash: 6da3c82f5e0e1c8f6126c5394c7884686c49e867
       body: Update layers/meta-balena

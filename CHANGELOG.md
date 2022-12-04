@@ -1,6 +1,30 @@
 Change log
 -----------
 
+# v2.107.18
+## (2022-12-04)
+
+
+<details>
+<summary> Update layers/meta-balena to 1ca7d4bad4a759051bb8f30a284ed24070260790 [renovate[bot]] </summary>
+
+> ## meta-balena-2.107.18
+> ### (2022-12-04)
+> 
+> 
+> <details>
+> <summary> Update tests/leviathan digest to fe4d6a1 [renovate[bot]] </summary>
+> 
+>> ### leviathan-2.10.9
+>> #### (2022-12-02)
+>> 
+>> * Revert "docker-compose: stop using the default docker bridge" [Kyle Harding]
+>> 
+> </details>
+> 
+> 
+</details>
+
 # v2.107.17
 ## (2022-12-02)
 
