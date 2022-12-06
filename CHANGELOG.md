@@ -1,6 +1,22 @@
 Change log
 -----------
 
+# v2.107.19
+## (2022-12-06)
+
+
+<details>
+<summary> Update layers/meta-balena to a2287559a0625ca82d362981105353eddcb627ec [renovate[bot]] </summary>
+
+> ## meta-balena-2.107.19
+> ### (2022-12-06)
+> 
+> * image_types_balena: generate bmap file [Joseph Kogut]
+> * flasher: write disk image skipping sparse blocks [Joseph Kogut]
+> * image_types_balena: create sparse disk image [Joseph Kogut]
+> 
+</details>
+
 # v2.107.18
 ## (2022-12-04)
 
