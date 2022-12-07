@@ -1,6 +1,11 @@
 Change log
 -----------
 
+# v2.107.18+rev1
+## (2022-12-07)
+
+* Discontinue intel Edison [Alex Gonzalez]
+
 # v2.107.18
 ## (2022-12-04)
 

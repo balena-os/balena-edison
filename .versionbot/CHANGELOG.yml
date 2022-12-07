@@ -1,4 +1,19 @@
 - commits:
+    - subject: Discontinue intel Edison
+      hash: c95e7bb5604668f75e3bdfc557ed7f43b8279538
+      body: |
+        The intel Edison was discontinued by the vendor on June 19, 2017.
+      footer:
+        Changelog-entry: Discontinue intel Edison
+        changelog-entry: Discontinue intel Edison
+        Signed-off-by: Alex Gonzalez <alexg@balena.io>
+        signed-off-by: Alex Gonzalez <alexg@balena.io>
+      author: Alex Gonzalez
+      nested: []
+  version: 2.107.18+rev1
+  title: ""
+  date: 2022-12-07T12:53:46.127Z
+- commits:
     - subject: Update layers/meta-balena to 1ca7d4bad4a759051bb8f30a284ed24070260790
       hash: 1e930e9f309ba91b50624ccf31d0279513c071bc
       body: Update layers/meta-balena
